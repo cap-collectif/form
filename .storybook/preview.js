@@ -1,3 +1,6 @@
+import {IntlProvider} from "react-intl";
+import {CapUIProvider} from "@cap-collectif/ui";
+
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: '^on.*' },
@@ -8,3 +11,14 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  Story => (
+      <CapUIProvider>
+        <IntlProvider locale="fr-FR">
+          <Story />
+        </IntlProvider>
+      </CapUIProvider>
+  ),
+]
+
