@@ -1,7 +1,6 @@
 import { useState, FC } from 'react';
 import {
     Uploader as CapUploader,
-    UploaderProps as CapUploaderProps,
     InfoMessage,
     FileList,
 } from '@cap-collectif/ui';
@@ -13,22 +12,10 @@ import {
     UploaderError,
     UploaderWarning,
     uploadFiles,
+    UploaderProps
 } from './Uploader.utils';
 
 type UploaderValue = ApiFileInfo[];
-
-export interface UploaderProps
-    extends Omit<CapUploaderProps, 'wording' | 'isInvalid' | 'isRequired' | 'onDrop'> {
-    onDrop?: CapUploaderProps['onDrop'];
-    uploadURI?: string;
-}
-
-export enum ErrorCode {
-    FileInvalidType = 'file-invalid-type',
-    FileTooLarge = 'file-too-large',
-    FileTooSmall = 'file-too-small',
-    TooManyFiles = 'too-many-files',
-}
 
 export const Uploader: FC<UploaderProps> = ({
     onDrop,

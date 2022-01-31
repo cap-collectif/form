@@ -1,3 +1,5 @@
 export * from './uploader'
 export * from './fieldInput'
-export * from './'
+export * from './MultipleCheckbox'
+export * from './Select'
+export * from './FormControl'

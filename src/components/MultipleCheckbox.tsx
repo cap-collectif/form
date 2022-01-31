@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import * as React from 'react';
 import { Checkbox as CapCheckbox, CheckboxGroup } from '@cap-collectif/ui';
 
