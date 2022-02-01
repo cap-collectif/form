@@ -8,12 +8,12 @@ import {
     FormErrorMessage,
 } from '@cap-collectif/ui';
 
-interface FormControlProps extends CapFormControlProps {
+export interface FormControlProps extends CapFormControlProps {
     name: string;
     control: Control<any>;
 }
 
-const FormControl: FC<FormControlProps> = ({
+export const FormControl: FC<FormControlProps> = ({
     name,
     control,
     children,
