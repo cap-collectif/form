@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.1.1
+
+`2022-02-01`
+
+- 🐛 Fix export components [#3](https://github.com/cap-collectif/form/pull/3)
+
 ## 0.1.0
 
 `2022-02-01`
