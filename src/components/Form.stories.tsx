@@ -35,6 +35,15 @@ export const Default = () => {
                 />
             </FormControl>
 
+            <FormControl name="fingers" control={control} isRequired>
+                <FormLabel label="Number of finger" />
+                <FieldInput
+                    type="number"
+                    name="fingers"
+                    control={control}
+                />
+            </FormControl>
+
             <FormControl name="description" control={control} isRequired>
                 <FormLabel label="Description" />
                 <FormGuideline>Tell us about you</FormGuideline>
