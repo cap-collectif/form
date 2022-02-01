@@ -23,6 +23,7 @@ export const FieldInput: FC<FieldInputProps> = ({
     control,
     rules,
     defaultValue,
+    onChange,
     ...props
 }) => {
     const intl = useIntl();
@@ -40,25 +41,30 @@ export const FieldInput: FC<FieldInputProps> = ({
         defaultValue,
     });
 
+    const handleOnChange = (e): void => {
+        if(onChange) onChange(e);
+        field.onChange(e);
+    }
+
     switch (type) {
         default:
         case 'text':
         case 'email':
         case 'password':
-            return <Input type={type} {...props} {...field} />;
+            return <Input type={type} {...props} {...field} onChange={handleOnChange} />;
         case 'number':
-            return <InputNumber {...props} {...field} />;
+            return <InputNumber {...props} {...field} onChange={handleOnChange} />;
         case 'textarea':
-            return <TextArea {...props} {...field} />;
+            return <TextArea {...props} {...field} onChange={handleOnChange} />;
         case 'select':
-            return <Select {...props} {...field} />;
+            return <Select {...props} {...field} onChange={handleOnChange} />;
         case 'switch':
-            return <Switch {...props} {...field} />;
+            return <Switch {...props} {...field} onChange={handleOnChange} />;
         case 'checkbox':
             return props?.choices ? (
-                <MultipleCheckbox {...props} {...field} />
+                <MultipleCheckbox {...props} {...field} onChange={handleOnChange} />
             ) : (
-                <Checkbox {...props} {...field} />
+                <Checkbox {...props} {...field} onChange={handleOnChange} />
             );
         case 'uploader':
             return <Uploader {...props} {...field} />;

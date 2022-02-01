@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+import type { SyntheticEvent} from 'react';
 import type {
     CheckboxProps,
     TextAreaProps,
@@ -24,7 +24,7 @@ type Rules = {
 export type BaseField = {
     name: UseControllerProps['name']
     control: Control<any>
-    onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    onChange?: (event: SyntheticEvent) => void;
     defaultValue?: any
     rules?: Rules
 };
