@@ -21,6 +21,7 @@ export const Default = () => {
                 <FormLabel label="Firstname" />
                 <FieldInput
                     type="text"
+                    minLength={4}
                     name="firstName"
                     control={control}
                     defaultValue="Patrick"

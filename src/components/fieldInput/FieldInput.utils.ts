@@ -8,7 +8,7 @@ export const REGEX_URL =
 
 export const getMinLengthRule = (minLength: number, intl: IntlShape) => ({
     value: minLength,
-    message: intl.formatMessage({ id: 'two-characters-minimum-required' }),
+    message: intl.formatMessage({ id: 'characters-minimum-required' }, { length: minLength }),
 });
 
 export const getEmailRule = (intl: IntlShape) => ({
