@@ -6,9 +6,11 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
@@ -30,6 +32,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
+    "react-dom": ">=16",
     "@cap-collectif/ui": ">=0.9.1",
     "react-hook-form": ">=7.19.5"
   },
@@ -42,11 +45,11 @@
   "size-limit": [
     {
       "path": "dist/form.cjs.production.min.js",
-      "limit": "400 KB"
+      "limit": "30 KB"
     },
     {
       "path": "dist/form.esm.js",
-      "limit": "400 KB"
+      "limit": "30 KB"
     }
   ],
   "lint-staged": {
@@ -75,11 +78,10 @@
     "size-limit": "^7.0.5",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
+    "typescript": "^4.5.5",
     "@cap-collectif/ui": "^0.9.1",
     "react-hook-form": "^7.25.1",
-    "react-intl": "^5.24.4"
-  }
+    "react-intl": "https://github.com/cap-collectif/react-intl#a224d16c7a37884328676e9608987601a7c26205"
+  },
+  "dependencies": {}
 }

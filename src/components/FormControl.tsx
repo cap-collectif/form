@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { FC } from 'react';
 import { useIntl } from 'react-intl';
 import { Control, useController } from 'react-hook-form';
