@@ -1,5 +1,6 @@
+// @ts-nocheck
 
-import * as React from 'react';
+import type { FC, ChangeEvent } from 'react';
 import { Checkbox as CapCheckbox, CheckboxGroup } from '@cap-collectif/ui';
 
 type MultipleCheckboxValue = {
@@ -21,7 +22,7 @@ export interface MultipleCheckboxProps {
     onChange?: (value: MultipleCheckboxValue) => void;
 }
 
-export const MultipleCheckbox: React.FC<MultipleCheckboxProps> = ({
+export const MultipleCheckbox: FC<MultipleCheckboxProps> = ({
     choices,
     value,
     id,
@@ -31,7 +32,7 @@ export const MultipleCheckbox: React.FC<MultipleCheckboxProps> = ({
     const finalValue = value ? value.labels : [];
     const fieldName = `choices-for-field-${id}`;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>, choiceValue: string) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>, choiceValue: string) => {
         const newValue = [...finalValue];
 
         if (event && event.target.checked) newValue.push(choiceValue);
