@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState, FC } from 'react';
 import {
     Uploader as CapUploader,
@@ -6,7 +8,6 @@ import {
 } from '@cap-collectif/ui';
 import { useIntl } from 'react-intl';
 import {
-    ApiFileInfo,
     handleErrors,
     handleWarning,
     UploaderError,
@@ -15,7 +16,6 @@ import {
     UploaderProps
 } from './Uploader.utils';
 
-type UploaderValue = ApiFileInfo[];
 
 export const Uploader: FC<UploaderProps> = ({
     onDrop,
@@ -23,12 +23,13 @@ export const Uploader: FC<UploaderProps> = ({
     uploadURI,
     multiple = false,
     maxSize = 10000000,
+    value,
+    onChange,
     ...props
 }) => {
     const intl = useIntl();
     const [error, setError] = useState<UploaderError>([]);
     const [warning, setWarning] = useState<UploaderWarning>(null);
-    const [files, setFiles] = useState<UploaderValue>([]);
 
     const wordingUploader = {
         uploaderPrompt: intl.formatMessage({ id: 'uploader-prompt' }, { count: multiple ? 2 : 1 }),
@@ -50,14 +51,17 @@ export const Uploader: FC<UploaderProps> = ({
 
                     if (uploadURI) {
                         const filesUploaded = await uploadFiles(args[0], uploadURI);
-                        setFiles(filesUploaded);
+
+                        if(onChange) {
+                            if(multiple)onChange(filesUploaded);
+                            else onChange(filesUploaded[0]);
+                        }
                     }
 
                     if (error || warning) resetWarningAndError();
-
                     if (onDrop) onDrop(...args);
                 }}
-                value={files}
+                value={value}
                 onDropRejected={(filesRejected, event) => {
                     if (maxSize || props.format) {
                         handleErrors(filesRejected, setError, multiple, intl, {
@@ -98,13 +102,15 @@ export const Uploader: FC<UploaderProps> = ({
                 </InfoMessage>
             )}
 
-            {multiple && files.length > 0 && (
+            {multiple && Array.isArray(value) && value.length > 0 && (
                 <FileList
-                    files={files}
+                    files={value}
                     deleteFileLabel={intl.formatMessage({ id: 'action_delete' })}
                     onRemove={fileDeleted => {
-                        const filesUpdated = files.filter(file => file.id !== fileDeleted.id);
-                        setFiles(filesUpdated);
+                        if(onChange && Array.isArray(value)){
+                            const filesUpdated = value.filter(file => file.id !== fileDeleted.id);
+                            onChange(filesUpdated);
+                        }
                     }}
                 />
             )}
