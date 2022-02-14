@@ -2,10 +2,21 @@ import type { FileRejection } from 'react-dropzone';
 import type { IntlShape } from 'react-intl';
 import type { UploaderProps as CapUploaderProps } from "@cap-collectif/ui";
 
+export type ApiFileInfo = {
+    id: string
+    name: string
+    size: string
+    url: string
+    type: string
+}
+
+export type UploaderValue = ApiFileInfo | ApiFileInfo[] | null | undefined;
+
 export interface UploaderProps
     extends Omit<CapUploaderProps, 'wording' | 'isInvalid' | 'isRequired' | 'onDrop'> {
     onDrop?: CapUploaderProps['onDrop'];
     uploadURI?: string;
+    onChange?: (value: UploaderValue) => void
 }
 
 export enum ErrorCode {
@@ -13,14 +24,6 @@ export enum ErrorCode {
     FileTooLarge = 'file-too-large',
     FileTooSmall = 'file-too-small',
     TooManyFiles = 'too-many-files',
-}
-
-export type ApiFileInfo = {
-    id: string
-    name: string
-    size: string
-    url: string
-    type: string
 }
 
 export type UploaderError = string | string[] | null;
