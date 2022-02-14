@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.1.3
+
+`2022-02-14`
+
+- 🛠 Improve value/onChange of `Uploader` [#8](https://github.com/cap-collectif/form/pull/8)
+
 ## 0.1.2
 
 `2022-02-02`
