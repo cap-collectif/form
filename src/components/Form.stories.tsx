@@ -3,6 +3,7 @@ import { Box, Flex, FormLabel, FormGuideline } from '@cap-collectif/ui';
 import FormControl from './FormControl';
 import { FieldInput } from './fieldInput';
 import { useForm } from 'react-hook-form';
+import * as React from 'react'
 
 const meta: Meta = {
     title: 'Example',
@@ -14,6 +15,8 @@ export const Default = () => {
     const { control } = useForm({
         mode: 'onChange',
     });
+    const [value,setValue] = React.useState<string>('')
+    
 
     return (
         <Box as="form" maxWidth="40%" margin="auto">
@@ -135,6 +138,18 @@ export const Default = () => {
                     clearable
                 />
             </FormControl>
+          <FormControl name="codeInput" control={control} isRequired>
+            <FormLabel label="Code Input" />
+            <FieldInput
+              type="codeInput"
+              name="codeInput"
+              control={control}
+              length={6}
+              isVerified={value!==''}
+             onComplete={(code:string)=>{setValue(code)}}
+            />
+          </FormControl>
+          
         </Box>
     );
 };

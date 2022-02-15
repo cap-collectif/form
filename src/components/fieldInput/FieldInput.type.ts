@@ -5,7 +5,8 @@ import type {
     InputProps,
     SwitchProps,
     InputNumberProps,
-} from '@cap-collectif/ui';
+    CodeInputProps
+} from '@cap-collectif/ui'
 import type { MultipleCheckboxProps } from '../MultipleCheckbox';
 import type { UploaderProps } from '../uploader';
 import type { SelectProps } from '../Select';
@@ -29,7 +30,7 @@ export type BaseField = {
     rules?: Rules
 };
 
-export type AllFieldTypes = FieldSelect | FieldCheckbox | FieldTextArea | FieldText | FieldSwitch | FieldUploader | FieldNumber
+export type AllFieldTypes = FieldSelect | FieldCheckbox | FieldTextArea | FieldText | FieldSwitch | FieldUploader | FieldNumber | FieldCodeInput 
 
 export type FieldSelect = SelectProps & {
     type: 'select',
@@ -58,3 +59,8 @@ export type FieldUploader = {
 export type FieldNumber = {
     type: 'number'
 } & InputNumberProps;
+
+export type FieldCodeInput = {
+    type: 'codeInput'
+} & CodeInputProps;
+

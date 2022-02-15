@@ -8,7 +8,7 @@
 import type { FC } from 'react';
 import type { BaseField, AllFieldTypes } from './FieldInput.type';
 import { useController } from 'react-hook-form';
-import { Input, TextArea, Switch, Checkbox, InputNumber } from '@cap-collectif/ui';
+import { Input, TextArea, Switch, Checkbox, InputNumber,CodeInput } from '@cap-collectif/ui';
 import MultipleCheckbox from '../MultipleCheckbox';
 import Select from '../Select';
 import Uploader from '../uploader/Uploader';
@@ -45,6 +45,7 @@ export const FieldInput: FC<FieldInputProps> = ({
         if(onChange) onChange(e);
         field.onChange(e);
     }
+    
 
     switch (type) {
         default:
@@ -68,6 +69,8 @@ export const FieldInput: FC<FieldInputProps> = ({
             );
         case 'uploader':
             return <Uploader {...props} {...field} />;
+        case 'codeInput':
+            return <CodeInput {...props} {...field} />;
     }
 };
 
