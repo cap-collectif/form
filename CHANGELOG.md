@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.1.4
+
+`2022-02-16`
+
+- 🆕 Setup field `CodeInput` [#10](https://github.com/cap-collectif/form/pull/10)
+- 🆕 Setup field `FlagSelect` [#10](https://github.com/cap-collectif/form/pull/10)
+
 ## 0.1.3
 
 `2022-02-14`
