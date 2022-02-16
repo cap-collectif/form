@@ -31,10 +31,11 @@
     "**/typescript": "^4.4.4"
   },
   "peerDependencies": {
+    "@cap-collectif/ui": ">=0.9.4",
     "react": ">=16",
     "react-dom": ">=16",
-    "@cap-collectif/ui": ">=0.9.1",
-    "react-hook-form": ">=7.19.5"
+    "react-hook-form": ">=7.19.5",
+    "react-select": "^5.2.1"
   },
   "husky": {
     "hooks": {
@@ -59,6 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
+    "@cap-collectif/ui": "^0.9.4",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@size-limit/webpack": "^7.0.5",
     "@size-limit/webpack-why": "^7.0.5",
@@ -74,14 +76,13 @@
     "husky": "^7.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.25.1",
+    "react-intl": "https://github.com/cap-collectif/react-intl#a224d16c7a37884328676e9608987601a7c26205",
     "react-is": "^17.0.2",
     "size-limit": "^7.0.5",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.5",
-    "@cap-collectif/ui": "^0.9.1",
-    "react-hook-form": "^7.25.1",
-    "react-intl": "https://github.com/cap-collectif/react-intl#a224d16c7a37884328676e9608987601a7c26205"
+    "typescript": "^4.5.5"
   },
   "dependencies": {}
 }
