@@ -16,7 +16,6 @@ import {
     UploaderProps
 } from './Uploader.utils';
 
-
 export const Uploader: FC<UploaderProps> = ({
     onDrop,
     onDropRejected,
@@ -25,6 +24,7 @@ export const Uploader: FC<UploaderProps> = ({
     maxSize = 10000000,
     value,
     onChange,
+    onRemove,
     ...props
 }) => {
     const intl = useIntl();
@@ -74,6 +74,10 @@ export const Uploader: FC<UploaderProps> = ({
                 }}
                 multiple={multiple}
                 maxSize={maxSize}
+                onRemove={(file) => {
+                    if(onChange) onChange(null);
+                    if(onRemove) onRemove(file);
+                }}
                 {...props}
             />
 
