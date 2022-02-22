@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.1.5
+
+`2022-02-22`
+
+- 🐛 Fix value for `Switch` and `Checkbox` [#12](https://github.com/cap-collectif/form/pull/12)
+- 🐛 Apply onChange in onRemove of `Uploader` [#12](https://github.com/cap-collectif/form/pull/12)
+
 ## 0.1.4
 
 `2022-02-16`
