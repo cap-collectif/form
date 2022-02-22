@@ -72,12 +72,12 @@ export const FieldInput: FC<FieldInputProps> = ({
     case 'select':
       return <Select {...props} {...field} onChange={handleOnChange} />
     case 'switch':
-      return <Switch {...props} {...field} onChange={handleOnChange} />
+      return <Switch {...props} {...field} onChange={handleOnChange} checked={field.value} />
     case 'checkbox':
       return props?.choices ? (
         <MultipleCheckbox {...props} {...field} onChange={handleOnChange} />
       ) : (
-        <Checkbox {...props} {...field} onChange={handleOnChange} />
+        <Checkbox {...props} {...field} onChange={handleOnChange} checked={field.value} />
       )
     case 'uploader':
       return <Uploader {...props} {...field} />
