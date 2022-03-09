@@ -38,7 +38,7 @@ export const FieldInput: FC<FieldInputProps> = ({
   const minLengthRule = props.minLength
     ? getMinLengthRule(props.minLength, intl)
     : undefined
-  const emailRule = props.type === 'email' ? getEmailRule(intl) : undefined
+  const emailRule = type === 'email' ? getEmailRule(intl) : undefined
 
   const { field } = useController({
     name,
