@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.1.6
+
+`2022-03-17`
+
+- 🐛 Fix email check on `Input` [#15](https://github.com/cap-collectif/form/pull/15)
+
 ## 0.1.5
 
 `2022-02-22`
