@@ -15,7 +15,7 @@ To better understand the changelog, here are some legends we use:
 
 `2022-03-17`
 
-- 🐛 Fix email check on `Input` [#12](https://github.com/cap-collectif/form/pull/15)
+- 🐛 Fix email check on `Input` [#15](https://github.com/cap-collectif/form/pull/15)
 
 ## 0.1.5
 
