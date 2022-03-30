@@ -11,6 +11,11 @@ export const getMinLengthRule = (minLength: number, intl: IntlShape) => ({
     message: intl.formatMessage({ id: 'characters-minimum-required' }, { length: minLength }),
 });
 
+export const getMaxLengthRule = (maxLength: number, intl: IntlShape) => ({
+    value: maxLength,
+    message: intl.formatMessage({ id: 'characters-maximum-required' }, { length: maxLength }),
+});
+
 export const getEmailRule = (intl: IntlShape) => ({
     value: REGEX_EMAIL,
     message: intl.formatMessage({ id: 'global.constraints.email.invalid' }),
