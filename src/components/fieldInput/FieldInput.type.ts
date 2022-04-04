@@ -18,9 +18,14 @@ import type {
 import { FlagSelectProps } from '../FlagSelect'
 
 type Rules = {
-  validate?: RegisterOptions['validate']
-  pattern?: RegisterOptions['pattern']
-  setValueAs?: RegisterOptions['setValueAs']
+    validate?: RegisterOptions['validate'];
+    pattern?: RegisterOptions['pattern'];
+    setValueAs?: RegisterOptions['setValueAs'];
+    required?: RegisterOptions['required'];
+    min?: RegisterOptions['min'];
+    max?: RegisterOptions['max'];
+    minLength?: RegisterOptions['minLength'];
+    maxLength?: RegisterOptions['maxLength'];
 }
 
 export type BaseField = {
