@@ -1,6 +1,7 @@
 import type { SyntheticEvent } from 'react'
 import type {
   CheckboxProps,
+  RadioProps,
   TextAreaProps,
   InputProps,
   SwitchProps,
@@ -8,6 +9,7 @@ import type {
   CodeInputProps,
 } from '@cap-collectif/ui'
 import type { MultipleCheckboxProps } from '../MultipleCheckbox'
+import type { MultipleRadioProps } from '../MultipleRadio'
 import type { UploaderProps } from '../uploader'
 import type { SelectProps } from '../Select'
 import type {
@@ -39,6 +41,7 @@ export type BaseField = {
 export type AllFieldTypes =
   | FieldSelect
   | FieldCheckbox
+  | FieldRadio
   | FieldTextArea
   | FieldText
   | FieldSwitch
@@ -53,6 +56,10 @@ export type FieldSelect = SelectProps & {
 
 export type FieldCheckbox = (CheckboxProps | MultipleCheckboxProps) & {
   type: 'checkbox'
+}
+
+export type FieldRadio = (RadioProps | MultipleRadioProps) & {
+    type: 'radio'
 }
 
 export type FieldTextArea = {
