@@ -91,6 +91,29 @@ export const Default = () => {
         />
       </FormControl>
 
+        <FormControl name="country" control={control} isRequired>
+            <FormLabel label="Country" />
+            <FormGuideline>Choose your country</FormGuideline>
+            <FieldInput
+                type="radio"
+                name="country"
+                id="country"
+                control={control}
+                choices={[
+                    {
+                        id: 'france',
+                        useIdAsValue: false,
+                        label: 'France',
+                    },
+                    {
+                        id: 'australia',
+                        useIdAsValue: false,
+                        label: 'Australia',
+                    },
+                ]}
+            />
+        </FormControl>
+
       <FormControl name="logo" control={control} isRequired>
         <FormLabel label="Logo" />
         <FormGuideline>Accepted type: jpg, png, svg.</FormGuideline>
