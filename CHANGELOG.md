@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.2.0
+
+`2022-04-05`
+
+- 🆕 Setup field `Radio` [#18](https://github.com/cap-collectif/form/pull/18)
+
 ## 0.1.6
 
 `2022-03-17`
