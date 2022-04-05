@@ -13,14 +13,16 @@ import {
   TextArea,
   Switch,
   Checkbox,
+  Radio,
   InputNumber,
   CodeInput,
 } from '@cap-collectif/ui'
 import MultipleCheckbox from '../MultipleCheckbox'
+import MultipleRadio from '../MultipleRadio'
 import Select from '../Select'
 import Uploader from '../uploader/Uploader'
 import { useIntl } from 'react-intl'
-import { getEmailRule, getMinLengthRule } from './FieldInput.utils'
+import { getEmailRule, getMinLengthRule, getMaxLengthRule } from './FieldInput.utils'
 import { FlagSelect } from '../FlagSelect'
 
 export type FieldInputProps = BaseField & AllFieldTypes
@@ -80,6 +82,12 @@ export const FieldInput: FC<FieldInputProps> = ({
         <MultipleCheckbox {...props} {...field} onChange={handleOnChange} />
       ) : (
         <Checkbox {...props} {...field} onChange={handleOnChange} checked={field.value} />
+      )
+    case 'radio':
+      return props?.choices ? (
+          <MultipleRadio {...props} {...field} onChange={handleOnChange} />
+      ) : (
+          <Radio {...props} {...field} onChange={handleOnChange} checked={field.value} />
       )
     case 'uploader':
       return <Uploader {...props} {...field} />
