@@ -17,7 +17,7 @@ import type {
   RegisterOptions,
   UseControllerProps,
 } from 'react-hook-form'
-import { FlagSelectProps } from '../FlagSelect'
+import type { FlagSelectProps } from '../flagSelect'
 
 type Rules = {
     validate?: RegisterOptions['validate'];

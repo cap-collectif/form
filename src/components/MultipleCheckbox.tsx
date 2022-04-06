@@ -3,9 +3,8 @@
 import type { FC, ChangeEvent } from 'react';
 import { Checkbox as CapCheckbox, CheckboxGroup } from '@cap-collectif/ui';
 
-type MultipleCheckboxValue = {
+export type MultipleCheckboxValue = {
     labels: string[],
-    other?: string | null,
 };
 
 type Choice = {
