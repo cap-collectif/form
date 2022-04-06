@@ -40,7 +40,9 @@ export const FieldInput: FC<FieldInputProps> = ({
   const minLengthRule = props.minLength
     ? getMinLengthRule(props.minLength, intl)
     : undefined
-  const maxLengthRule = props.maxLength ? getMaxLengthRule(props.maxLength, intl) : undefined;
+  const maxLengthRule = props.maxLength
+    ? getMaxLengthRule(props.maxLength, intl)
+    : undefined
   const emailRule = type === 'email' ? getEmailRule(intl) : undefined
 
   const { field } = useController({
@@ -76,12 +78,24 @@ export const FieldInput: FC<FieldInputProps> = ({
     case 'select':
       return <Select {...props} {...field} onChange={handleOnChange} />
     case 'switch':
-      return <Switch {...props} {...field} onChange={handleOnChange} checked={field.value} />
+      return (
+        <Switch
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          checked={field.value}
+        />
+      )
     case 'checkbox':
       return props?.choices ? (
         <MultipleCheckbox {...props} {...field} onChange={handleOnChange} />
       ) : (
-        <Checkbox {...props} {...field} onChange={handleOnChange} checked={field.value} />
+        <Checkbox
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          checked={field.value}
+        />
       )
     case 'radio':
       return props?.choices ? (

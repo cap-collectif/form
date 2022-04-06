@@ -42,7 +42,7 @@ const flagsOptions: FlagOptionType[] = flags.map((flag: FlagType) => ({
   label: (
     <Flex direction="row" spacing={2} align="center">
       <Box>{flag.flag}</Box>
-      <Text color="gray.900" fontSize={3} lineHeight="base">
+      <Text color="gray.900" fontSize={3} lineHeight="base" m={0} ml={2}>
         {flag.country_code} (+{flag.dial_code})
       </Text>
     </Flex>
