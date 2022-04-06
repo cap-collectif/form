@@ -20,7 +20,7 @@ import {
 import MultipleCheckbox from '../MultipleCheckbox'
 import MultipleRadio from '../MultipleRadio'
 import Select from '../Select'
-import Uploader from '../uploader'
+import { Uploader } from '../uploader'
 import { useIntl } from 'react-intl'
 import { getEmailRule, getMinLengthRule, getMaxLengthRule } from './FieldInput.utils'
 import { FlagSelect } from '../flagSelect'
