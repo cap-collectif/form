@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.2.1
+
+`2022-04-06`
+
+- 🐛 Fix Select option margin  [#19](https://github.com/cap-collectif/form/pull/19)
+
 ## 0.2.0
 
 `2022-04-05`
