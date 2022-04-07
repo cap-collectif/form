@@ -11,6 +11,15 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.2.2
+
+`2022-04-07`
+
+- 🛠 Ajout de l'export de `MultipleRadio`  [#22](https://github.com/cap-collectif/form/pull/22)
+- 🛠 Renommage du dossier de `FlagSelect` à `flagSelect`  [#22](https://github.com/cap-collectif/form/pull/22)
+- 🛠 Updated `@cap-collectif/ui` to v1.1.1  [#23](https://github.com/cap-collectif/form/pull/23)
+- 🛠 Added `FormGuideline` to `inputGroup` in storybook  [#23](https://github.com/cap-collectif/form/pull/23)
+
 ## 0.2.1
 
 `2022-04-06`
