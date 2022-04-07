@@ -91,28 +91,28 @@ export const Default = () => {
         />
       </FormControl>
 
-        <FormControl name="country" control={control} isRequired>
-            <FormLabel label="Country" />
-            <FormGuideline>Choose your country</FormGuideline>
-            <FieldInput
-                type="radio"
-                name="country"
-                id="country"
-                control={control}
-                choices={[
-                    {
-                        id: 'france',
-                        useIdAsValue: false,
-                        label: 'France',
-                    },
-                    {
-                        id: 'australia',
-                        useIdAsValue: false,
-                        label: 'Australia',
-                    },
-                ]}
-            />
-        </FormControl>
+      <FormControl name="country" control={control} isRequired>
+        <FormLabel label="Country" />
+        <FormGuideline>Choose your country</FormGuideline>
+        <FieldInput
+          type="radio"
+          name="country"
+          id="country"
+          control={control}
+          choices={[
+            {
+              id: 'france',
+              useIdAsValue: false,
+              label: 'France',
+            },
+            {
+              id: 'australia',
+              useIdAsValue: false,
+              label: 'Australia',
+            },
+          ]}
+        />
+      </FormControl>
 
       <FormControl name="logo" control={control} isRequired>
         <FormLabel label="Logo" />
@@ -195,6 +195,7 @@ export const Default = () => {
       </FormControl>
       <InputGroup>
         <FormLabel label="Choisissez une couleur :" />
+        <FormGuideline>Tell us about you</FormGuideline>
         <FormControl name="CountryCode" control={control} isRequired>
           <FieldInput
             type="flagSelect"
