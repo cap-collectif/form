@@ -20,10 +20,10 @@ import {
 import MultipleCheckbox from '../MultipleCheckbox'
 import MultipleRadio from '../MultipleRadio'
 import Select from '../Select'
-import Uploader from '../uploader/Uploader'
+import { Uploader } from '../uploader'
 import { useIntl } from 'react-intl'
 import { getEmailRule, getMinLengthRule, getMaxLengthRule } from './FieldInput.utils'
-import { FlagSelect } from '../FlagSelect'
+import { FlagSelect } from '../flagSelect'
 
 export type FieldInputProps = BaseField & AllFieldTypes
 

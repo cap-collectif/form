@@ -3,9 +3,8 @@
 import type { FC, ChangeEvent } from 'react';
 import { Radio as CapRadio, RadioGroup } from '@cap-collectif/ui';
 
-type MultipleRadioValue = {
+export type MultipleRadioValue = {
     labels: string[],
-    other?: string | null,
 };
 
 type Choice = {
