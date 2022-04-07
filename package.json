@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
-    "@cap-collectif/ui": "1.1.0",
+    "@cap-collectif/ui": "^1.1.1",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@size-limit/webpack": "^7.0.5",
     "@size-limit/webpack-why": "^7.0.5",
