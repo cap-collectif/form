@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.2.3
+
+`2022-04-19`
+
+- 🐛 Fix CodeInput onChange function [#25](https://github.com/cap-collectif/form/pull/25)
+- 🛠 Display form values in Storybook [#25](https://github.com/cap-collectif/form/pull/25)
+
 ## 0.2.2
 
 `2022-04-07`
