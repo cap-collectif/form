@@ -20,14 +20,14 @@ import type {
 import type { FlagSelectProps } from '../flagSelect'
 
 type Rules = {
-    validate?: RegisterOptions['validate'];
-    pattern?: RegisterOptions['pattern'];
-    setValueAs?: RegisterOptions['setValueAs'];
-    required?: RegisterOptions['required'];
-    min?: RegisterOptions['min'];
-    max?: RegisterOptions['max'];
-    minLength?: RegisterOptions['minLength'];
-    maxLength?: RegisterOptions['maxLength'];
+  validate?: RegisterOptions['validate']
+  pattern?: RegisterOptions['pattern']
+  setValueAs?: RegisterOptions['setValueAs']
+  required?: RegisterOptions['required']
+  min?: RegisterOptions['min']
+  max?: RegisterOptions['max']
+  minLength?: RegisterOptions['minLength']
+  maxLength?: RegisterOptions['maxLength']
 }
 
 export type BaseField = {
@@ -59,7 +59,7 @@ export type FieldCheckbox = (CheckboxProps | MultipleCheckboxProps) & {
 }
 
 export type FieldRadio = (RadioProps | MultipleRadioProps) & {
-    type: 'radio'
+  type: 'radio'
 }
 
 export type FieldTextArea = {
@@ -84,7 +84,7 @@ export type FieldNumber = {
 
 export type FieldCodeInput = {
   type: 'codeInput'
-} & CodeInputProps
+} & Omit<CodeInputProps, 'onComplete'>
 
 export type FieldFlagSelect = {
   type: 'flagSelect'

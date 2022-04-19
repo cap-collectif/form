@@ -22,7 +22,11 @@ import MultipleRadio from '../MultipleRadio'
 import Select from '../Select'
 import { Uploader } from '../uploader'
 import { useIntl } from 'react-intl'
-import { getEmailRule, getMinLengthRule, getMaxLengthRule } from './FieldInput.utils'
+import {
+  getEmailRule,
+  getMinLengthRule,
+  getMaxLengthRule,
+} from './FieldInput.utils'
 import { FlagSelect } from '../flagSelect'
 
 export type FieldInputProps = BaseField & AllFieldTypes
@@ -99,14 +103,25 @@ export const FieldInput: FC<FieldInputProps> = ({
       )
     case 'radio':
       return props?.choices ? (
-          <MultipleRadio {...props} {...field} onChange={handleOnChange} />
+        <MultipleRadio {...props} {...field} onChange={handleOnChange} />
       ) : (
-          <Radio {...props} {...field} onChange={handleOnChange} checked={field.value} />
+        <Radio
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          checked={field.value}
+        />
       )
     case 'uploader':
       return <Uploader {...props} {...field} />
     case 'codeInput':
-      return <CodeInput {...props} {...field} />
+      return (
+        <CodeInput
+          {...props}
+          {...field}
+          onComplete={value => handleOnChange({ target: { value } })}
+        />
+      )
     case 'flagSelect':
       return <FlagSelect {...props} {...field} onChange={handleOnChange} />
   }
