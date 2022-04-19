@@ -9,7 +9,6 @@ import {
 import FormControl from './FormControl'
 import { FieldInput } from './fieldInput'
 import { useForm } from 'react-hook-form'
-import * as React from 'react'
 
 const meta: Meta = {
   title: 'Example',
@@ -21,13 +20,18 @@ const meta: Meta = {
 export default meta
 
 export const Default = () => {
-  const { control } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     mode: 'onChange',
   })
-  const [value, setValue] = React.useState<string>('')
+  const onSubmit = (data: any) => console.log(data)
 
   return (
-    <Box as="form" maxWidth="40%" margin="auto">
+    <Box
+      as="form"
+      maxWidth="40%"
+      margin="auto"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormControl name="firstName" control={control} isRequired>
         <FormLabel label="Firstname" />
         <FieldInput
@@ -187,16 +191,17 @@ export const Default = () => {
           name="codeInput"
           control={control}
           length={6}
-          isVerified={value !== ''}
-          onComplete={(code: string) => {
-            setValue(code)
-          }}
         />
       </FormControl>
       <InputGroup>
         <FormLabel label="Choisissez une couleur :" />
         <FormGuideline>Tell us about you</FormGuideline>
-        <FormControl name="CountryCode" control={control} isRequired>
+        <FormControl
+          name="CountryCode"
+          control={control}
+          isRequired
+          style={{ flex: '50%' }}
+        >
           <FieldInput
             type="flagSelect"
             name="CountryCode"
@@ -204,7 +209,12 @@ export const Default = () => {
             placeholder="Choisir un pays"
           />
         </FormControl>
-        <FormControl name="phoneNumber" control={control} isRequired>
+        <FormControl
+          name="phoneNumber"
+          control={control}
+          isRequired
+          style={{ flex: '50%' }}
+        >
           <FieldInput
             type="tel"
             name="phoneNumber"
@@ -213,6 +223,7 @@ export const Default = () => {
           />
         </FormControl>
       </InputGroup>
+      <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </Box>
   )
 }
