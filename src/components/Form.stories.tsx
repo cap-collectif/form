@@ -19,6 +19,13 @@ const meta: Meta = {
 
 export default meta
 
+const cities = [
+  { value: 'paris', label: 'Paris' },
+  { value: 'bordeaux', label: 'Bordeaux' },
+  { value: 'lille', label: 'Lille' },
+  { value: 'toulouse', label: 'Toulouse' },
+]
+
 export const Default = () => {
   const { control, handleSubmit, watch } = useForm({
     mode: 'onChange',
@@ -184,6 +191,7 @@ export const Default = () => {
           clearable
         />
       </FormControl>
+
       <FormControl name="codeInput" control={control} isRequired>
         <FormLabel label="Code Input" />
         <FieldInput
@@ -193,6 +201,7 @@ export const Default = () => {
           length={6}
         />
       </FormControl>
+
       <InputGroup>
         <FormLabel label="Choisissez une couleur :" />
         <FormGuideline>Tell us about you</FormGuideline>
@@ -223,6 +232,28 @@ export const Default = () => {
           />
         </FormControl>
       </InputGroup>
+
+      <FormControl name="city" control={control} isRequired>
+        <FormLabel label="City" />
+        <FieldInput
+            type="address"
+            name="city"
+            control={control}
+            filterOption={(option, input) => {
+              return option.label.toLowerCase().includes(input.toLowerCase());
+            }}
+            loadOptions={() => {
+              return new Promise(resolve => {
+                setTimeout(() => {
+                  resolve(cities)
+                }, 1000)
+              })
+            }}
+            defaultOptions
+            cacheOptions
+        />
+      </FormControl>
+
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </Box>
   )

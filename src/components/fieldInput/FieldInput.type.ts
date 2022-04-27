@@ -7,6 +7,7 @@ import type {
   SwitchProps,
   InputNumberProps,
   CodeInputProps,
+  SearchProps,
 } from '@cap-collectif/ui'
 import type { MultipleCheckboxProps } from '../MultipleCheckbox'
 import type { MultipleRadioProps } from '../MultipleRadio'
@@ -49,6 +50,7 @@ export type AllFieldTypes =
   | FieldNumber
   | FieldCodeInput
   | FieldFlagSelect
+  | FieldAddress
 
 export type FieldSelect = SelectProps & {
   type: 'select'
@@ -89,3 +91,12 @@ export type FieldCodeInput = {
 export type FieldFlagSelect = {
   type: 'flagSelect'
 } & FlagSelectProps
+
+type AddressOption = {
+  label: string,
+  value: string,
+}
+
+export type FieldAddress = Omit<SearchProps<AddressOption>, 'onChange'> & {
+  type: 'address'
+}
