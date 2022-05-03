@@ -11,6 +11,14 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.3.0
+
+`2022-05-03`
+
+- 🐛 Handle error for nested fields [#29](https://github.com/cap-collectif/form/pull/28)
+- 🆕 Add date field [#28](https://github.com/cap-collectif/form/pull/28)
+- 🆕 Add address field [#27](https://github.com/cap-collectif/form/pull/27)
+
 ## 0.2.3
 
 `2022-04-19`
