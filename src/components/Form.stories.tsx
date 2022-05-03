@@ -233,6 +233,11 @@ export const Default = () => {
         </FormControl>
       </InputGroup>
 
+      <FormControl name="birth-date" control={control} isRequired>
+        <FormLabel label="Birth date" />
+        <FieldInput type="date" name="birth-date" control={control} />
+      </FormControl>
+
       <FormControl name="city" control={control} isRequired>
         <FormLabel label="City" />
         <FieldInput
