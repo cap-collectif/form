@@ -16,6 +16,7 @@ import {
   Radio,
   InputNumber,
   CodeInput,
+  Search
 } from '@cap-collectif/ui'
 import MultipleCheckbox from '../MultipleCheckbox'
 import MultipleRadio from '../MultipleRadio'
@@ -124,6 +125,8 @@ export const FieldInput: FC<FieldInputProps> = ({
       )
     case 'flagSelect':
       return <FlagSelect {...props} {...field} onChange={handleOnChange} />
+    case 'address':
+      return <Search {...props} {...field} value={undefined} onSelect={handleOnChange} />
   }
 }
 
