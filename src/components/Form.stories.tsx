@@ -206,28 +206,29 @@ export const Default = () => {
         <FormLabel label="Choisissez une couleur :" />
         <FormGuideline>Tell us about you</FormGuideline>
         <FormControl
-          name="CountryCode"
+          name="phone.countryCode"
           control={control}
           isRequired
           style={{ flex: '50%' }}
         >
           <FieldInput
             type="flagSelect"
-            name="CountryCode"
+            name="phone.countryCode"
             control={control}
             placeholder="Choisir un pays"
           />
         </FormControl>
         <FormControl
-          name="phoneNumber"
+          name="phone.phoneNumber"
           control={control}
           isRequired
           style={{ flex: '50%' }}
         >
           <FieldInput
             type="tel"
-            name="phoneNumber"
+            name="phone.phoneNumber"
             maxLength={10}
+            minLength={2}
             control={control}
           />
         </FormControl>

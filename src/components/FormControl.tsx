@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import { useIntl } from 'react-intl';
-import { Control, useController } from 'react-hook-form';
+import { Control, useController, FormState } from 'react-hook-form';
 import {
     CapInputSize,
     FormControl as CapFormControl,
@@ -13,6 +13,16 @@ import {
 export interface FormControlProps extends CapFormControlProps {
     name: string;
     control: Control<any>;
+}
+
+const getTouchedState = (touchedFields: FormState['touchedFields'], name: string): boolean => {
+    const isNestedField = name.includes('.');
+    if(!isNestedField) return touchedFields[name]
+
+    const [firstPart, secondPart] = name.split('.');
+    if(touchedFields[firstPart]) return touchedFields[firstPart][secondPart]
+
+    return false;
 }
 
 export const FormControl: FC<FormControlProps> = ({
@@ -35,8 +45,7 @@ export const FormControl: FC<FormControlProps> = ({
             required: isRequired ? intl.formatMessage({ id: 'fill-field' }) : undefined,
         },
     });
-
-    const isInvalid = invalid && touchedFields[name];
+    const isInvalid = invalid && getTouchedState(touchedFields, name);
 
     return (
         <CapFormControl
