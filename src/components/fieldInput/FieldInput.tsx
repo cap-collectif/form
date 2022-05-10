@@ -17,7 +17,7 @@ import {
   InputNumber,
   CodeInput,
   DateInput,
-  Search
+  Search,
 } from '@cap-collectif/ui'
 import MultipleCheckbox from '../MultipleCheckbox'
 import MultipleRadio from '../MultipleRadio'
@@ -30,6 +30,7 @@ import {
   getMaxLengthRule,
 } from './FieldInput.utils'
 import { FlagSelect } from '../flagSelect'
+import { Address } from '../address'
 
 export type FieldInputProps = BaseField & AllFieldTypes
 
@@ -129,7 +130,7 @@ export const FieldInput: FC<FieldInputProps> = ({
     case 'date':
       return <DateInput {...props} {...field} onChange={handleOnChange} />
     case 'address':
-      return <Search {...props} {...field} value={undefined} onSelect={handleOnChange} />
+      return <Address {...props} {...field} onChange={handleOnChange} />
   }
 }
 
