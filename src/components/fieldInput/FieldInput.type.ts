@@ -1,4 +1,3 @@
-import type { SyntheticEvent } from 'react'
 import type {
   CheckboxProps,
   RadioProps,
@@ -8,18 +7,20 @@ import type {
   InputNumberProps,
   CodeInputProps,
   DateInputProps,
-  SearchProps,
 } from '@cap-collectif/ui'
-import type { MultipleCheckboxProps } from '../MultipleCheckbox'
-import type { MultipleRadioProps } from '../MultipleRadio'
-import type { UploaderProps } from '../uploader'
-import type { SelectProps } from '../Select'
+import type { SyntheticEvent } from 'react'
 import type {
   Control,
   RegisterOptions,
   UseControllerProps,
 } from 'react-hook-form'
+
+import type { MultipleCheckboxProps } from '../MultipleCheckbox'
+import type { MultipleRadioProps } from '../MultipleRadio'
+import type { SelectProps } from '../Select'
+import { AddressProps } from '../address'
 import type { FlagSelectProps } from '../flagSelect'
+import type { UploaderProps } from '../uploader'
 
 type Rules = {
   validate?: RegisterOptions['validate']
@@ -98,11 +99,6 @@ export type FieldDate = Omit<DateInputProps, 'value' | 'onChange'> & {
   type: 'date'
 }
 
-type AddressOption = {
-  label: string,
-  value: string,
-}
-
-export type FieldAddress = Omit<SearchProps<AddressOption>, 'onChange'> & {
+export type FieldAddress = AddressProps & {
   type: 'address'
 }

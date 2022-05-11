@@ -1,4 +1,3 @@
-import { Meta } from '@storybook/react'
 import {
   Box,
   Flex,
@@ -6,9 +5,11 @@ import {
   FormGuideline,
   InputGroup,
 } from '@cap-collectif/ui'
+import { Meta } from '@storybook/react'
+import { useForm } from 'react-hook-form'
+
 import FormControl from './FormControl'
 import { FieldInput } from './fieldInput'
-import { useForm } from 'react-hook-form'
 
 const meta: Meta = {
   title: 'Example',
@@ -18,13 +19,6 @@ const meta: Meta = {
 }
 
 export default meta
-
-const cities = [
-  { value: 'paris', label: 'Paris' },
-  { value: 'bordeaux', label: 'Bordeaux' },
-  { value: 'lille', label: 'Lille' },
-  { value: 'toulouse', label: 'Toulouse' },
-]
 
 export const Default = () => {
   const { control, handleSubmit, watch } = useForm({
@@ -238,28 +232,6 @@ export const Default = () => {
         <FormLabel label="Birth date" />
         <FieldInput type="date" name="birth-date" control={control} />
       </FormControl>
-
-      <FormControl name="city" control={control} isRequired>
-        <FormLabel label="City" />
-        <FieldInput
-            type="address"
-            name="city"
-            control={control}
-            filterOption={(option, input) => {
-              return option.label.toLowerCase().includes(input.toLowerCase());
-            }}
-            loadOptions={() => {
-              return new Promise(resolve => {
-                setTimeout(() => {
-                  resolve(cities)
-                }, 1000)
-              })
-            }}
-            defaultOptions
-            cacheOptions
-        />
-      </FormControl>
-
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </Box>
   )
