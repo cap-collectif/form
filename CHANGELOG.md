@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.3.1
+
+`2022-05-11`
+
+- 🐛 Fixed address field [#31](https://github.com/cap-collectif/form/pull/31)
+
 ## 0.3.0
 
 `2022-05-03`
