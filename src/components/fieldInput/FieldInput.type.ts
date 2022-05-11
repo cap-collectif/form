@@ -18,6 +18,7 @@ import type {
 import type { MultipleCheckboxProps } from '../MultipleCheckbox'
 import type { MultipleRadioProps } from '../MultipleRadio'
 import type { SelectProps } from '../Select'
+import { AddressProps } from '../address'
 import type { FlagSelectProps } from '../flagSelect'
 import type { UploaderProps } from '../uploader'
 
@@ -98,6 +99,6 @@ export type FieldDate = Omit<DateInputProps, 'value' | 'onChange'> & {
   type: 'date'
 }
 
-export type FieldAddress = InputProps & {
+export type FieldAddress = AddressProps & {
   type: 'address'
 }

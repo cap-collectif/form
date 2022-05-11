@@ -4,10 +4,6 @@
  *  /!\ Need to improve type here, it's supposed to be a discriminated union base on the prop "type" with the switch.
  *  But TS seems to not understand.
  */
-
-import type { FC } from 'react'
-import type { BaseField, AllFieldTypes } from './FieldInput.type'
-import { useController } from 'react-hook-form'
 import {
   Input,
   TextArea,
@@ -17,20 +13,23 @@ import {
   InputNumber,
   CodeInput,
   DateInput,
-  Search,
 } from '@cap-collectif/ui'
+import type { FC } from 'react'
+import { useController } from 'react-hook-form'
+import { useIntl } from 'react-intl'
+
 import MultipleCheckbox from '../MultipleCheckbox'
 import MultipleRadio from '../MultipleRadio'
 import Select from '../Select'
+import { Address } from '../address'
+import { FlagSelect } from '../flagSelect'
 import { Uploader } from '../uploader'
-import { useIntl } from 'react-intl'
+import type { BaseField, AllFieldTypes } from './FieldInput.type'
 import {
   getEmailRule,
   getMinLengthRule,
   getMaxLengthRule,
 } from './FieldInput.utils'
-import { FlagSelect } from '../flagSelect'
-import { Address } from '../address'
 
 export type FieldInputProps = BaseField & AllFieldTypes
 

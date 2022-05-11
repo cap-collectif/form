@@ -1,2 +1,3 @@
 export { default as Address } from './Address'
-export { AddressComplete, AddressWithoutPosition } from './Address.type'
+export type { AddressComplete, AddressWithoutPosition } from './Address.type'
+export type { AddressProps } from './Address'

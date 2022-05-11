@@ -9,7 +9,8 @@ import PlacesAutocomplete, {
 
 import type { AddressComplete, AddressWithoutPosition } from './Address.type'
 
-const Address: React.FC<InputProps> = ({
+export type AddressProps = InputProps
+const Address: React.FC<AddressProps> = ({
   value,
   onChange,
   placeholder,
@@ -64,7 +65,10 @@ const Address: React.FC<InputProps> = ({
               className={cn('cap-address__dropdown', className)}
             >
               {suggestions.map(suggestion => (
-                <Dropdown.Item {...getSuggestionItemProps(suggestion)}>
+                <Dropdown.Item
+                  key={suggestion.id}
+                  {...getSuggestionItemProps(suggestion)}
+                >
                   {suggestion.description}
                 </Dropdown.Item>
               ))}
