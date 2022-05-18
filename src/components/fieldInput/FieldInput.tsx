@@ -70,6 +70,7 @@ export const FieldInput: FC<FieldInputProps> = ({
 
   switch (type) {
     default:
+    case 'hidden':
     case 'text':
     case 'email':
     case 'password':
