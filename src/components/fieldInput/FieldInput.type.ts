@@ -72,7 +72,7 @@ export type FieldTextArea = {
 } & TextAreaProps
 
 export type FieldText = {
-  type: 'text' | 'email' | 'password' | 'tel'
+  type: 'text' | 'email' | 'password' | 'tel' | 'hidden'
 } & InputProps
 
 export type FieldSwitch = {

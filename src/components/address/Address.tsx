@@ -9,23 +9,25 @@ import PlacesAutocomplete, {
 
 import type { AddressComplete, AddressWithoutPosition } from './Address.type'
 
-export type AddressProps = InputProps
+export type AddressProps = InputProps & {
+  getAddress?: (address: AddressComplete) => void
+}
 const Address: React.FC<AddressProps> = ({
   value,
   onChange,
   placeholder,
   className,
   width,
+  getAddress,
 }) => {
   const handleSelect = async (address: string) => {
-    const addressWithoutPosition: AddressWithoutPosition = await geocodeByAddress(
-      address,
-    )
-      .then((results: AddressWithoutPosition[]) => {
-        // There is no lat & lng here
-        return results[0]
-      })
-      .catch(error => console.error('Error', error))
+    const addressWithoutPosition: AddressWithoutPosition =
+      await geocodeByAddress(address)
+        .then((results: AddressWithoutPosition[]) => {
+          // There is no lat & lng here
+          return results[0]
+        })
+        .catch(error => console.error('Error', error))
 
     await getLatLng(addressWithoutPosition)
       .then(latLng => {
@@ -39,11 +41,11 @@ const Address: React.FC<AddressProps> = ({
             },
           },
         }
+        if (getAddress) getAddress(addressComplete)
         onChange(addressComplete.formatted_address)
       })
       .catch(error => console.error('Error', error))
   }
-
   return (
     <PlacesAutocomplete
       value={value}
