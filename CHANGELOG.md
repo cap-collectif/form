@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+## 0.3.2
+
+`2022-05-19`
+
+- 🐛 Added `getAddress` callback to `Address` component to get full address [#33](https://github.com/cap-collectif/form/pull/33)
+- 🐛 Added `hidden` type to input [#33](https://github.com/cap-collectif/form/pull/33)
+
 ## 0.3.1
 
 `2022-05-11`
