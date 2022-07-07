@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.4.0
+
+`2022-07-07`
+
+- 🆕 Add colorPicker field [#35](https://github.com/cap-collectif/form/pull/35)
+
 ## 0.3.2
 
 `2022-05-19`
