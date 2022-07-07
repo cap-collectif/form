@@ -7,6 +7,7 @@ import type {
   InputNumberProps,
   CodeInputProps,
   DateInputProps,
+  ColorPickerProps,
 } from '@cap-collectif/ui'
 import type { SyntheticEvent } from 'react'
 import type {
@@ -54,6 +55,7 @@ export type AllFieldTypes =
   | FieldFlagSelect
   | FieldDate
   | FieldAddress
+  | FieldColorPicker
 
 export type FieldSelect = SelectProps & {
   type: 'select'
@@ -101,4 +103,8 @@ export type FieldDate = Omit<DateInputProps, 'value' | 'onChange'> & {
 
 export type FieldAddress = AddressProps & {
   type: 'address'
+}
+
+export type FieldColorPicker = Omit<ColorPickerProps, 'value' | 'onChange'> & {
+  type: 'colorPicker'
 }
