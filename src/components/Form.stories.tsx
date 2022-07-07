@@ -232,6 +232,11 @@ export const Default = () => {
         <FormLabel label="Birth date" />
         <FieldInput type="date" name="birth-date" control={control} />
       </FormControl>
+
+      <FormControl name="color" control={control} isRequired>
+        <FormLabel label="Color" />
+        <FieldInput type="colorPicker" name="color" control={control} />
+      </FormControl>
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </Box>
   )

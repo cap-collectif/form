@@ -13,6 +13,7 @@ import {
   InputNumber,
   CodeInput,
   DateInput,
+  ColorPicker,
 } from '@cap-collectif/ui'
 import type { FC } from 'react'
 import { useController } from 'react-hook-form'
@@ -131,6 +132,8 @@ export const FieldInput: FC<FieldInputProps> = ({
       return <DateInput {...props} {...field} onChange={handleOnChange} />
     case 'address':
       return <Address {...props} {...field} onChange={handleOnChange} />
+    case 'colorPicker':
+      return <ColorPicker {...props} {...field} onChange={handleOnChange} />
   }
 }
 
