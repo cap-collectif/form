@@ -8,10 +8,12 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete'
 
 import type { AddressComplete, AddressWithoutPosition } from './Address.type'
+import { BaseField } from '../fieldInput'
 
-export type AddressProps = InputProps & {
-  getAddress?: (address: AddressComplete) => void
-}
+export type AddressProps = BaseField &
+  InputProps & {
+    getAddress?: (address: AddressComplete) => void
+  }
 const Address: React.FC<AddressProps> = ({
   value,
   onChange,
@@ -19,6 +21,7 @@ const Address: React.FC<AddressProps> = ({
   className,
   width,
   getAddress,
+  ...props
 }) => {
   const handleSelect = async (address: string) => {
     const addressWithoutPosition: AddressWithoutPosition =
@@ -60,6 +63,7 @@ const Address: React.FC<AddressProps> = ({
               placeholder: placeholder,
               className: cn('cap-address__input', className),
             })}
+            {...props}
           />
           {suggestions.length > 0 && (
             <Dropdown
