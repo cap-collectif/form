@@ -13,7 +13,7 @@ To better understand the changelog, here are some legends we use:
 
 # 0.4.2
 
-`2022-08-17`
+`2022-10-17`
 
 - 🛠 Fix `AddressInput` Props [#39](https://github.com/cap-collectif/form/pull/39)
 
