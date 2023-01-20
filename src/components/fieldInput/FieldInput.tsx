@@ -41,6 +41,7 @@ export const FieldInput: FC<FieldInputProps> = ({
   rules,
   defaultValue,
   onChange,
+  onBlur,
   ...props
 }) => {
   const intl = useIntl()
@@ -69,6 +70,11 @@ export const FieldInput: FC<FieldInputProps> = ({
     field.onChange(e)
   }
 
+  const handleOnBlur = (e): void => {
+    if (onBlur) onBlur(e)
+    field.onBlur(e)
+  }
+
   switch (type) {
     default:
     case 'hidden':
@@ -77,42 +83,82 @@ export const FieldInput: FC<FieldInputProps> = ({
     case 'password':
     case 'tel':
       return (
-        <Input type={type} {...props} {...field} onChange={handleOnChange} />
+        <Input
+          type={type}
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
       )
     case 'number':
-      return <InputNumber {...props} {...field} onChange={handleOnChange} />
+      return (
+        <InputNumber
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'textarea':
-      return <TextArea {...props} {...field} onChange={handleOnChange} />
+      return (
+        <TextArea
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'select':
-      return <Select {...props} {...field} onChange={handleOnChange} />
+      return (
+        <Select
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'switch':
       return (
         <Switch
           {...props}
           {...field}
           onChange={handleOnChange}
+          onBlur={handleOnBlur}
           checked={field.value}
         />
       )
     case 'checkbox':
       return props?.choices ? (
-        <MultipleCheckbox {...props} {...field} onChange={handleOnChange} />
+        <MultipleCheckbox
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
       ) : (
         <Checkbox
           {...props}
           {...field}
           onChange={handleOnChange}
+          onBlur={handleOnBlur}
           checked={field.value}
         />
       )
     case 'radio':
       return props?.choices ? (
-        <MultipleRadio {...props} {...field} onChange={handleOnChange} />
+        <MultipleRadio
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
       ) : (
         <Radio
           {...props}
           {...field}
           onChange={handleOnChange}
+          onBlur={handleOnBlur}
           checked={field.value}
         />
       )
@@ -127,13 +173,41 @@ export const FieldInput: FC<FieldInputProps> = ({
         />
       )
     case 'flagSelect':
-      return <FlagSelect {...props} {...field} onChange={handleOnChange} />
+      return (
+        <FlagSelect
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'date':
-      return <DateInput {...props} {...field} onChange={handleOnChange} />
+      return (
+        <DateInput
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'address':
-      return <Address {...props} {...field} onChange={handleOnChange} />
+      return (
+        <Address
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
     case 'colorPicker':
-      return <ColorPicker {...props} {...field} onChange={handleOnChange} />
+      return (
+        <ColorPicker
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
   }
 }
 
