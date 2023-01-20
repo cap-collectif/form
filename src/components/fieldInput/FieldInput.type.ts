@@ -101,6 +101,14 @@ export type FieldDate = Omit<DateInputProps, 'value' | 'onChange'> & {
   type: 'date'
 }
 
+export type FieldHour = Omit<DateInputProps, 'value' | 'onChange'> & {
+  type: 'hour'
+}
+
+export type FieldDateHour = Omit<DateInputProps, 'value' | 'onChange'> & {
+  type: 'dateHour'
+}
+
 export type FieldAddress = AddressProps & {
   type: 'address'
 }

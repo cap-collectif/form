@@ -13,6 +13,7 @@ import {
   InputNumber,
   CodeInput,
   DateInput,
+  HourInput,
   ColorPicker,
 } from '@cap-collectif/ui'
 import type { FC } from 'react'
@@ -31,6 +32,7 @@ import {
   getMinLengthRule,
   getMaxLengthRule,
 } from './FieldInput.utils'
+import { DateHour } from '../dateHour'
 
 export type FieldInputProps = BaseField & AllFieldTypes
 
@@ -184,6 +186,24 @@ export const FieldInput: FC<FieldInputProps> = ({
     case 'date':
       return (
         <DateInput
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
+    case 'hour':
+      return (
+        <HourInput
+          {...props}
+          {...field}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+        />
+      )
+    case 'dateHour':
+      return (
+        <DateHour
           {...props}
           {...field}
           onChange={handleOnChange}
