@@ -54,6 +54,8 @@ export type AllFieldTypes =
   | FieldCodeInput
   | FieldFlagSelect
   | FieldDate
+  | FieldHour
+  | FieldDateHour
   | FieldAddress
   | FieldColorPicker
 
