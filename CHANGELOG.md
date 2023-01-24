@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.5.0
+
+`2023-01-24`
+
+- 🆕 Add `Hour` and `DateHour` input fields [#43](https://github.com/cap-collectif/form/pull/43)
+- 🛠 Add `onBlur` handling on input fields [#42](https://github.com/cap-collectif/form/pull/42)
+
 # 0.4.2
 
 `2022-10-17`
