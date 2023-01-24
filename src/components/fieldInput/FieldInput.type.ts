@@ -54,6 +54,8 @@ export type AllFieldTypes =
   | FieldCodeInput
   | FieldFlagSelect
   | FieldDate
+  | FieldHour
+  | FieldDateHour
   | FieldAddress
   | FieldColorPicker
 
@@ -99,6 +101,14 @@ export type FieldFlagSelect = {
 
 export type FieldDate = Omit<DateInputProps, 'value' | 'onChange'> & {
   type: 'date'
+}
+
+export type FieldHour = Omit<DateInputProps, 'value' | 'onChange'> & {
+  type: 'hour'
+}
+
+export type FieldDateHour = Omit<DateInputProps, 'value' | 'onChange'> & {
+  type: 'dateHour'
 }
 
 export type FieldAddress = AddressProps & {

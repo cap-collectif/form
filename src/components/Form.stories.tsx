@@ -233,6 +233,16 @@ export const Default = () => {
         <FieldInput type="date" name="birth-date" control={control} />
       </FormControl>
 
+      <FormControl name="hour" control={control} isRequired>
+        <FormLabel label="Hour" />
+        <FieldInput type="hour" name="hour" control={control} />
+      </FormControl>
+
+      <FormControl name="dateHour" control={control} isRequired>
+        <FormLabel label="Date With Hour" />
+        <FieldInput type="dateHour" name="dateHour" control={control} />
+      </FormControl>
+
       <FormControl name="color" control={control} isRequired>
         <FormLabel label="Color" />
         <FieldInput type="colorPicker" name="color" control={control} />
