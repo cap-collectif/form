@@ -56,7 +56,7 @@ export const Select: React.FC<SelectProps> = ({
                 }
                 onChange={newValue => {
                     if (typeof onChange === 'function') {
-                        onChange(rest.isMulti ? newValue : newValue?.value || '');
+                        onChange(newValue)
                     }
                 }}
             />
