@@ -33,10 +33,11 @@ import {
   getMaxLengthRule,
 } from './FieldInput.utils'
 import { DateHour } from '../dateHour'
+import {forwardRef} from "react";
 
 export type FieldInputProps = BaseField & AllFieldTypes
 
-export const FieldInput: FC<FieldInputProps> = ({
+export const FieldInput: FC<FieldInputProps> = forwardRef(({
   name,
   type = 'text',
   control,
@@ -45,7 +46,7 @@ export const FieldInput: FC<FieldInputProps> = ({
   onChange,
   onBlur,
   ...props
-}) => {
+}, ref) => {
   const intl = useIntl()
   const minLengthRule = props.minLength
     ? getMinLengthRule(props.minLength, intl)
@@ -91,6 +92,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'number':
@@ -100,6 +102,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'textarea':
@@ -109,6 +112,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'select':
@@ -118,6 +122,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'switch':
@@ -128,6 +133,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           onChange={handleOnChange}
           onBlur={handleOnBlur}
           checked={field.value}
+          ref={ref}
         />
       )
     case 'checkbox':
@@ -137,6 +143,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       ) : (
         <Checkbox
@@ -145,6 +152,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           onChange={handleOnChange}
           onBlur={handleOnBlur}
           checked={field.value}
+          ref={ref}
         />
       )
     case 'radio':
@@ -154,6 +162,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       ) : (
         <Radio
@@ -162,15 +171,17 @@ export const FieldInput: FC<FieldInputProps> = ({
           onChange={handleOnChange}
           onBlur={handleOnBlur}
           checked={field.value}
+          ref={ref}
         />
       )
     case 'uploader':
-      return <Uploader {...props} {...field} />
+      return <Uploader {...props} {...field} ref={ref} />
     case 'codeInput':
       return (
         <CodeInput
           {...props}
           {...field}
+          ref={ref}
           onComplete={value => handleOnChange({ target: { value } })}
         />
       )
@@ -181,6 +192,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'date':
@@ -190,6 +202,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'hour':
@@ -199,6 +212,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'dateHour':
@@ -208,6 +222,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'address':
@@ -217,6 +232,7 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
     case 'colorPicker':
@@ -226,9 +242,10 @@ export const FieldInput: FC<FieldInputProps> = ({
           {...field}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          ref={ref}
         />
       )
   }
-}
+})
 
 export default FieldInput
