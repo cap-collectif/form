@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+
+# 0.5.2
+
+`2023-04-06`
+
+- 🛠 Add forwardRef to FieldInput [#48](https://github.com/cap-collectif/form/pull/48)
+
 # 0.5.1
 
 `2023-03-14`
