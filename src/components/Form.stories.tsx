@@ -251,3 +251,48 @@ export const Default = () => {
     </Box>
   )
 }
+
+export const Focus = () => {
+  const { control, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+  })
+
+  const {errors, isValid} = formState;
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  }
+
+  return (
+    <Box
+      as="form"
+      maxWidth="40%"
+      margin="auto"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <FormControl name="firstName" control={control} isRequired>
+        <FormLabel label="Firstname" />
+        <FieldInput
+          type="text"
+          minLength={4}
+          name="firstName"
+          control={control}
+          placeholder="Jean"
+          defaultValue="Jean123"
+          rules={{
+            pattern: {
+              value: /^[a-zA-Z]+$/,
+              message: 'Uniquement des lettres',
+            },
+          }}
+        />
+      </FormControl>
+
+      <button type="submit">Submit</button>
+      <pre>{JSON.stringify({isValid}, null, 2)}</pre>
+      <pre>{JSON.stringify({errors}, null, 2)}</pre>
+    </Box>
+  )
+
+}
+

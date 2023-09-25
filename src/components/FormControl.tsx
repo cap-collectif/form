@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 import type { FC } from 'react';
+import React from 'react';
 import { useIntl } from 'react-intl';
 import { Control, useController, FormState } from 'react-hook-form';
 import {
@@ -36,6 +37,7 @@ export const FormControl: FC<FormControlProps> = ({
 }) => {
     const intl = useIntl();
     const {
+        field,
         fieldState: { invalid, error },
         formState: { touchedFields },
     } = useController({
@@ -46,6 +48,13 @@ export const FormControl: FC<FormControlProps> = ({
         },
     });
     const isInvalid = invalid && getTouchedState(touchedFields, name);
+
+    const childrenWithProps = React.Children.map(children, (child) => {
+        if (child.type.displayName === 'FieldInput') {
+            return React.cloneElement(child, {ref: field.ref});
+        }
+        return React.cloneElement(child);
+    });
 
     return (
         <CapFormControl
@@ -60,7 +69,7 @@ export const FormControl: FC<FormControlProps> = ({
                 ...sx,
             }}
             {...props}>
-            {children}
+            {childrenWithProps}
 
             {isInvalid && error?.message && <FormErrorMessage>{error.message}</FormErrorMessage>}
         </CapFormControl>
