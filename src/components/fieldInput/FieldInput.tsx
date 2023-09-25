@@ -248,4 +248,6 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(({
   }
 })
 
+FieldInput.displayName = 'FieldInput'
+
 export default FieldInput
