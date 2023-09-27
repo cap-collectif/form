@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.5.5
+
+`2023-09-27`
+
+- 🛠 Fix FormControl children property access [#58](https://github.com/cap-collectif/form/pull/58)
+- 🛠 Update Dependency `@cap-collectif/ui` [#59](https://github.com/cap-collectif/form/pull/59)
+
 # 0.5.4
 
 `2023-09-26`
