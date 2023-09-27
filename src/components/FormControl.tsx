@@ -57,7 +57,7 @@ export const FormControl: FC<FormControlProps> = ({
             return React.cloneElement(child);
         }
         return null;
-    })
+    });
 
     return (
         <CapFormControl
