@@ -50,7 +50,7 @@ export const FormControl: FC<FormControlProps> = ({
     const isInvalid = invalid && getTouchedState(touchedFields, name);
 
     const childrenWithProps = React.Children.map(children, (child) => {
-        if (child.type.displayName === 'FieldInput') {
+        if (child?.type?.displayName === 'FieldInput') {
             return React.cloneElement(child, {ref: field.ref});
         }
         return React.cloneElement(child);
