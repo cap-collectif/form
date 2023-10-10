@@ -13,6 +13,7 @@ import { BaseField } from '../fieldInput'
 export type AddressProps = BaseField &
   InputProps & {
     getAddress?: (address: AddressComplete) => void
+    getPosition?: (lat: number, lng: number) => void
   }
 const Address: React.FC<AddressProps> = ({
   value,
@@ -21,6 +22,7 @@ const Address: React.FC<AddressProps> = ({
   className,
   width,
   getAddress,
+  getPosition,
   ...props
 }) => {
   const handleSelect = async (address: string) => {
@@ -44,6 +46,7 @@ const Address: React.FC<AddressProps> = ({
             },
           },
         }
+        if (getPosition) getPosition(latLng.lat, latLng.lng)
         if (getAddress) getAddress(addressComplete)
         onChange(addressComplete.formatted_address)
       })
@@ -67,6 +70,7 @@ const Address: React.FC<AddressProps> = ({
           />
           {suggestions.length > 0 && (
             <Dropdown
+              zIndex={1000}
               width={width}
               className={cn('cap-address__dropdown', className)}
             >
