@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.5.7
+
+`2023-10-10`
+
+- 🆕 Add `getPosition` to address Component [#65](https://github.com/cap-collectif/form/pull/65)
+
 # 0.5.6
 
 `2023-09-27`
