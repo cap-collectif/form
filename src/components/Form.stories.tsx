@@ -141,6 +141,19 @@ export const Default = () => {
         />
       </FormControl>
 
+      <FormControl name="picture" control={control} isRequired>
+        <FormLabel label="Picture pour tester la max size" />
+        <FormGuideline>Accepted type: jpg, png, svg.</FormGuideline>
+        <FieldInput
+          type="uploader"
+          name="picture"
+          control={control}
+          showThumbnail
+          maxSize={100000}
+          format="image/*"
+        />
+      </FormControl>
+
       <FormControl name="sober" control={control} isRequired>
         <FieldInput
           type="checkbox"
@@ -257,10 +270,10 @@ export const Focus = () => {
     mode: 'onChange',
   })
 
-  const {errors, isValid} = formState;
+  const { errors, isValid } = formState
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    console.log(data)
   }
 
   return (
@@ -289,10 +302,8 @@ export const Focus = () => {
       </FormControl>
 
       <button type="submit">Submit</button>
-      <pre>{JSON.stringify({isValid}, null, 2)}</pre>
-      <pre>{JSON.stringify({errors}, null, 2)}</pre>
+      <pre>{JSON.stringify({ isValid }, null, 2)}</pre>
+      <pre>{JSON.stringify({ errors }, null, 2)}</pre>
     </Box>
   )
-
 }
-
