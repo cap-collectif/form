@@ -7,6 +7,7 @@ import {
   DateInputValueType,
   Box,
   useTheme,
+  DateInputProps,
 } from '@cap-collectif/ui'
 import moment from 'moment'
 import { FC, useEffect, useState } from 'react'
@@ -15,6 +16,7 @@ export interface DateHourProps extends Omit<BoxPropsOf<'input'>, 'onChange'> {
   readonly isDisabled?: boolean
   readonly isInvalid?: boolean
   readonly variantSize?: CapInputSize
+  readonly dateInputProps?: Partial<DateInputProps>
 }
 
 const DATE_FORMAT = 'YYYY-MM-DD H:mm:ss'
@@ -25,6 +27,7 @@ export const DateHour: FC<DateHourProps> = ({
   variantSize = CapInputSize.Sm,
   isDisabled,
   isInvalid,
+  dateInputProps = {}
 }) => {
   const { colors } = useTheme()
   const initialDate = value ? moment(value, DATE_FORMAT) : null
@@ -70,6 +73,7 @@ export const DateHour: FC<DateHourProps> = ({
           variantSize={variantSize}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
+          {...dateInputProps}
         />
         <HourInput
           onChange={(newHourValue: string) => {
