@@ -11,6 +11,14 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.5.8
+
+`2024-01-08`
+
+- 🐛 Upgrade `cap-collectif/ui` dependency [#70](https://github.com/cap-collectif/form/pull/70)
+- 🐛 Forward `DateInput` props in `DateHour` input [#69](https://github.com/cap-collectif/form/pull/69)
+- 🐛 Add a better error message on `Uploader` component [#67](https://github.com/cap-collectif/form/pull/67)
+
 # 0.5.7
 
 `2023-10-10`
