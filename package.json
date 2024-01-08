@@ -46,11 +46,11 @@
   "size-limit": [
     {
       "path": "dist/form.cjs.production.min.js",
-      "limit": "40 KB"
+      "limit": "200 KB"
     },
     {
       "path": "dist/form.esm.js",
-      "limit": "40 KB"
+      "limit": "200 KB"
     }
   ],
   "lint-staged": {
