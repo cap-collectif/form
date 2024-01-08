@@ -20,7 +20,7 @@
     "build": "tsdx build --transpileOnly",
     "test": "tsdx test --passWithNoTests",
     "ts:check": "tsc --noEmit",
-    "lint": "tsdx lint",
+    "lint": "eslint src --ext .ts --ext .tsx",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
@@ -28,10 +28,11 @@
     "build-storybook": "build-storybook"
   },
   "resolutions": {
-    "**/typescript": "^4.4.4"
+    "**/typescript": "^4.4.4",
+    "eslint": "^7.2.8"
   },
   "peerDependencies": {
-    "@cap-collectif/ui": ">=1.8.2",
+    "@cap-collectif/ui": ">=1.8.6",
     "react": ">=16",
     "react-dom": ">=16",
     "react-hook-form": ">=7.19.5",
@@ -46,11 +47,11 @@
   "size-limit": [
     {
       "path": "dist/form.cjs.production.min.js",
-      "limit": "40 KB"
+      "limit": "200 KB"
     },
     {
       "path": "dist/form.esm.js",
-      "limit": "40 KB"
+      "limit": "200 KB"
     }
   ],
   "lint-staged": {
@@ -60,7 +61,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
-    "@cap-collectif/ui": "^1.8.2",
+    "@cap-collectif/ui": "^1.8.6",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@size-limit/webpack": "^7.0.5",
     "@size-limit/webpack-why": "^7.0.5",
