@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.5.9
+
+`2024-02-23`
+
+- 🐛 Parse input type number value as Number  [#72](https://github.com/cap-collectif/form/pull/72)
+
 # 0.5.8
 
 `2024-01-08`
