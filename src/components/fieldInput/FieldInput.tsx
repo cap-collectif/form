@@ -76,7 +76,7 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(
     const handleOnChange = (e): void => {
       if (onChange) onChange(e)
       if (type === 'number') {
-        const newEvent = { ...e, target: { ...e.target, value: parseInt(e.target.value) } }
+        const newEvent = { ...e, target: { ...e.target, value: Number(e.target.value) } }
         field.onChange(newEvent)
         return;
       }
