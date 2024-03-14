@@ -38,7 +38,11 @@ export const DateHour: FC<DateHourProps> = ({
   const [dateValue, setDateValue] = useState<DateInputValueType>(initialDate)
 
   useEffect(() => {
-    const formattedHour = moment(hourValue, 'hh:mm')
+    if (!dateValue) {
+      return
+    }
+
+    const formattedHour = moment(hourValue ?? '00:00', 'hh:mm')
     const dateHour = moment(dateValue ?? moment.now())
       .set({
         hour: formattedHour.get('hour'),
@@ -65,9 +69,9 @@ export const DateHour: FC<DateHourProps> = ({
         <DateInput
           onChange={newDateValue => {
             setDateValue(newDateValue)
-            if (!hourValue) {
-              setHourValue('00:00')
-            }
+            // if (!hourValue) {
+            //   setHourValue('00:00')
+            // }
           }}
           value={dateValue}
           variantSize={variantSize}
@@ -78,9 +82,9 @@ export const DateHour: FC<DateHourProps> = ({
         <HourInput
           onChange={(newHourValue: string) => {
             setHourValue(newHourValue)
-            if (!dateValue) {
-              setDateValue(moment())
-            }
+            // if (!dateValue) {
+            //   setDateValue(moment())
+            // }
           }}
           value={hourValue}
           variantSize={variantSize}
