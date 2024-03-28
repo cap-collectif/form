@@ -69,9 +69,6 @@ export const DateHour: FC<DateHourProps> = ({
         <DateInput
           onChange={newDateValue => {
             setDateValue(newDateValue)
-            // if (!hourValue) {
-            //   setHourValue('00:00')
-            // }
           }}
           value={dateValue}
           variantSize={variantSize}
@@ -82,9 +79,6 @@ export const DateHour: FC<DateHourProps> = ({
         <HourInput
           onChange={(newHourValue: string) => {
             setHourValue(newHourValue)
-            // if (!dateValue) {
-            //   setDateValue(moment())
-            // }
           }}
           value={hourValue}
           variantSize={variantSize}
