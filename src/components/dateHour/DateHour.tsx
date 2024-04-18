@@ -4,7 +4,6 @@ import {
   HourInput,
   BoxPropsOf,
   CapInputSize,
-  DateInputValueType,
   Box,
   useTheme,
   DateInputProps,
@@ -27,7 +26,7 @@ export const DateHour: FC<DateHourProps> = ({
   variantSize = CapInputSize.Sm,
   isDisabled,
   isInvalid,
-  dateInputProps = {}
+  dateInputProps = {},
 }) => {
   const { colors } = useTheme()
   const initialDate = value ? moment(value, DATE_FORMAT) : null
@@ -35,7 +34,7 @@ export const DateHour: FC<DateHourProps> = ({
   const [hourValue, setHourValue] = useState(
     initialDate ? initialDate.format('hh:mm') : null,
   )
-  const [dateValue, setDateValue] = useState<DateInputValueType>(initialDate)
+  const [dateValue, setDateValue] = useState<moment.Moment | null>(initialDate)
 
   useEffect(() => {
     if (!dateValue) {
@@ -55,9 +54,12 @@ export const DateHour: FC<DateHourProps> = ({
   return (
     <Box
       sx={{
-        '& .SingleDatePickerInput': {
+        '& .cap-date-input': {
           borderRight: '0px !important',
+          borderTopRightRadius: '0px !important',
+          borderBottomRightRadius: '0px !important',
         },
+        '& .cap-date-input + div': { flex: 'none' },
         '& .cap-hour-input > div': { borderLeft: '0px !important' },
         '&:focus-within *':
           !isDisabled && !isInvalid
@@ -65,12 +67,12 @@ export const DateHour: FC<DateHourProps> = ({
             : {},
       }}
     >
-      <InputGroup>
+      <InputGroup sx={{ flexWrap: 'nowrap !important' }}>
         <DateInput
-          onChange={newDateValue => {
-            setDateValue(newDateValue)
+          onChange={(newDateValue: React.ChangeEvent<HTMLInputElement>) => {
+            setDateValue(moment(newDateValue.target.value, DATE_FORMAT))
           }}
-          value={dateValue}
+          value={dateValue?.format('YYYY-MM-DD')}
           variantSize={variantSize}
           isDisabled={isDisabled}
           isInvalid={isInvalid}

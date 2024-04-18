@@ -32,7 +32,7 @@
     "eslint": "^7.2.8"
   },
   "peerDependencies": {
-    "@cap-collectif/ui": ">=1.8.6",
+    "@cap-collectif/ui": ">=1.10.0",
     "react": ">=16",
     "react-dom": ">=16",
     "react-hook-form": ">=7.19.5",
@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
-    "@cap-collectif/ui": "^1.8.6",
+    "@cap-collectif/ui": "^1.10.0",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@size-limit/webpack": "^7.0.5",
     "@size-limit/webpack-why": "^7.0.5",

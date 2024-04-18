@@ -34,6 +34,7 @@ import {
 } from './FieldInput.utils'
 import { DateHour } from '../dateHour'
 import { forwardRef } from 'react'
+import moment from 'moment'
 
 export type FieldInputProps = BaseField & AllFieldTypes
 
@@ -75,13 +76,27 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(
 
     const handleOnChange = (e): void => {
       if (onChange) onChange(e)
-      const value = e.target.value;
-      if (type === 'number' && value !== '') {
-        const newEvent = { ...e, target: { ...e.target, value: Number(e.target.value) } }
+      field.onChange(e)
+    }
+
+    const handleOnNumberChange = (e): void => {
+      if (onChange) onChange(e)
+      const value = e.target.value
+      if (value !== '') {
+        const newEvent = {
+          ...e,
+          target: { ...e.target, value: Number(e.target.value) },
+        }
         field.onChange(newEvent)
-        return;
+        return
       }
       field.onChange(e)
+    }
+
+    const handleOnDateChange = (e): void => {
+      const date = moment(e.target.value)
+      if (onChange) onChange(date)
+      field.onChange(date)
     }
 
     const handleOnBlur = (e): void => {
@@ -113,7 +128,7 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(
             {...props}
             {...field}
             id={id}
-            onChange={handleOnChange}
+            onChange={handleOnNumberChange}
             onBlur={handleOnBlur}
             ref={ref}
           />
@@ -222,8 +237,9 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(
           <DateInput
             {...props}
             {...field}
+            value={field.value?.format('YYYY-MM-DD')}
             id={id}
-            onChange={handleOnChange}
+            onChange={handleOnDateChange}
             onBlur={handleOnBlur}
             ref={ref}
           />
