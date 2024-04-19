@@ -49,6 +49,7 @@ export const DateHour: FC<DateHourProps> = ({
       })
       .format(DATE_FORMAT)
     onChange(dateHour)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hourValue, dateValue])
 
   return (
