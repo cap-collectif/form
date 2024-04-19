@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.0
+
+`2024-04-19`
+
+- 💥 Use native date input [#79](https://github.com/cap-collectif/form/pull/79)
+- 🛠 Separate onChange logic for specific inputs [#79](https://github.com/cap-collectif/form/pull/79)
+
 # 0.5.9
 
 `2024-02-23`
