@@ -11,6 +11,7 @@ type Choice = {
     id?: string | null,
     useIdAsValue: boolean,
     label: string,
+    disabled?: boolean
 };
 
 export interface MultipleRadioProps {
@@ -51,7 +52,9 @@ export const MultipleRadio: FC<MultipleRadioProps> = ({
                         name={fieldName}
                         id={`${id}_${choiceKey}`}
                         checked={finalValue?.includes(choiceValue)}
-                        onChange={event => handleChange(event, choiceValue)}>
+                        onChange={event => handleChange(event, choiceValue)}
+                        isDisabled={choice?.disabled ?? false}
+                    >
                         {choice.label}
                     </CapRadio>
                 );

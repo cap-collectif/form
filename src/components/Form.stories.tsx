@@ -109,11 +109,13 @@ export const Default = () => {
               id: 'france',
               useIdAsValue: false,
               label: 'France',
+              disabled: true,
             },
             {
               id: 'australia',
               useIdAsValue: false,
               label: 'Australia',
+              disabled: false,
             },
           ]}
         />
