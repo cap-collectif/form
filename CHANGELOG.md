@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.1
+
+`2024-04-25`
+
+- 🆕 Add the ability to disable single option of MultiRadio [#82](https://github.com/cap-collectif/form/pull/82)
+
 # 0.6.0
 
 `2024-04-19`
