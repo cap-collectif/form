@@ -38,7 +38,7 @@ export const DateHour: FC<DateHourProps> = ({
 
   useEffect(() => {
     if (!dateValue) {
-      onChange()
+      onChange(null)
       return
     }
 
