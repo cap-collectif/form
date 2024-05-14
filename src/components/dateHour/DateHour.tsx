@@ -38,6 +38,7 @@ export const DateHour: FC<DateHourProps> = ({
 
   useEffect(() => {
     if (!dateValue) {
+      onChange()
       return
     }
 
@@ -71,7 +72,8 @@ export const DateHour: FC<DateHourProps> = ({
       <InputGroup sx={{ flexWrap: 'nowrap !important' }}>
         <DateInput
           onChange={(newDateValue: React.ChangeEvent<HTMLInputElement>) => {
-            setDateValue(moment(newDateValue.target.value, DATE_FORMAT))
+            const value = newDateValue.target.value ? moment(newDateValue.target.value, DATE_FORMAT) : null
+            setDateValue(value)
           }}
           value={dateValue?.format('YYYY-MM-DD')}
           variantSize={variantSize}
