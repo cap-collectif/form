@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.2
+
+`2024-05-14`
+
+- 🐛 Fix nullable value in DateHour [#85](https://github.com/cap-collectif/form/pull/85)
+
+
 # 0.6.1
 
 `2024-04-25`
