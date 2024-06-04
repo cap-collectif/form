@@ -40,7 +40,7 @@ export type BaseField = {
   onChange?: (event: SyntheticEvent) => void
   defaultValue?: any
   rules?: Rules
-  id: string
+  id?: string
 }
 
 export type AllFieldTypes =
