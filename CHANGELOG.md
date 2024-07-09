@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.5
+
+`2024-07-09`
+
+- 🐛 Add an optional `id` prop on FieldInput component [#89](https://github.com/cap-collectif/form/pull/89)
+- 🐛 Improve overall accessibility [#70](https://github.com/cap-collectif/form/pull/93)
+
 # 0.6.4
 
 `2024-07-04`
