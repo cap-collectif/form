@@ -1172,10 +1172,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cap-collectif/ui@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@cap-collectif/ui/-/ui-1.10.0.tgz#7c42bc79251fc5cfefc53567f4f46f5f4ab51fe9"
-  integrity sha512-WGG150fSArSSpWRLq1R6f7KGyh1uumVvBDXodKwskAB/k3cUoKdY9Nydpy58/T6Z9cTX0+SjqeThwD5l5wPQEQ==
+"@cap-collectif/ui@^1.10.5":
+  version "1.10.5"
+  resolved "https://registry.yarnpkg.com/@cap-collectif/ui/-/ui-1.10.5.tgz#cbd5ff1431c8709ce8c0dddc52bf75e431f0ce69"
+  integrity sha512-rTYzMPLUGjdaBa73+zGwdpXwYZCKms1w/4HNdmtQFz+WHHHsQo5O1j9s57btTZdg4ASjemWu0ReF/SS19kG2SA==
   dependencies:
     "@styled-system/css" "^5.1.5"
     "@styled-system/should-forward-prop" "^5.1.5"
@@ -1183,6 +1183,7 @@
     classnames "^2.3.1"
     deepmerge "^4.2.2"
     framer-motion "^4.1.17"
+    input-otp "^1.2.4"
     react-beautiful-dnd "^13.1.1"
     react-color "^2.19.3"
     react-dates "^21.8.0"
@@ -8018,6 +8019,11 @@ inline-style-parser@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/inline-style-parser/-/inline-style-parser-0.1.1.tgz#ec8a3b429274e9c0a1f1c4ffa9453a7fef72cea1"
   integrity sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==
+
+input-otp@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/input-otp/-/input-otp-1.2.4.tgz#9834af8675ac72c7f1b7c010f181b3b4ffdd0f72"
+  integrity sha512-md6rhmD+zmMnUh5crQNSQxq3keBRYvE3odbr4Qb9g2NWzQv9azi+t1a3X4TBTbh98fsGHgEEJlzbe1q860uGCA==
 
 internal-slot@^1.0.3:
   version "1.0.3"
