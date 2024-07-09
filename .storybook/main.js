@@ -87,6 +87,12 @@ module.exports = {
       use: 'file-loader',
     })
 
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    })
+
     return {
       ...config,
       resolve: {
@@ -123,11 +129,11 @@ module.exports = {
           return false
         }
         if (
-            prop.parent &&
-            prop.parent.fileName &&
-            ALLOWED_DOCGEN_NODE_MODULES.some(module =>
-                prop.parent.fileName.includes(module),
-            )
+          prop.parent &&
+          prop.parent.fileName &&
+          ALLOWED_DOCGEN_NODE_MODULES.some(module =>
+            prop.parent.fileName.includes(module),
+          )
         ) {
           return true
         }

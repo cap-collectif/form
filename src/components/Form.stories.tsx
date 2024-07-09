@@ -203,12 +203,7 @@ export const Default = () => {
 
       <FormControl name="codeInput" control={control} isRequired>
         <FormLabel label="Code Input" />
-        <FieldInput
-          type="codeInput"
-          name="codeInput"
-          control={control}
-          length={6}
-        />
+        <FieldInput type="codeInput" name="codeInput" control={control} />
       </FormControl>
 
       <InputGroup>
@@ -255,9 +250,14 @@ export const Default = () => {
 
       <FormControl name="dateHour" control={control} isRequired>
         <FormLabel label="Date With Hour" />
-        <FieldInput type="dateHour" name="dateHour" control={control} dateInputProps={{
-          isOutsideRange: true
-        }} />
+        <FieldInput
+          type="dateHour"
+          name="dateHour"
+          control={control}
+          dateInputProps={{
+            isOutsideRange: true,
+          }}
+        />
       </FormControl>
 
       <FormControl name="color" control={control} isRequired>
