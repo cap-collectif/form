@@ -42,7 +42,7 @@ export const DateHour: FC<DateHourProps> = ({
       return
     }
 
-    const formattedHour = moment(hourValue ?? '00:00', 'hh:mm')
+    const formattedHour = moment(hourValue ?? '00:00', 'HH:mm')
     const dateHour = moment(dateValue ?? moment.now())
       .set({
         hour: formattedHour.get('hour'),
@@ -72,7 +72,9 @@ export const DateHour: FC<DateHourProps> = ({
       <InputGroup sx={{ flexWrap: 'nowrap !important' }}>
         <DateInput
           onChange={(newDateValue: React.ChangeEvent<HTMLInputElement>) => {
-            const value = newDateValue.target.value ? moment(newDateValue.target.value, DATE_FORMAT) : null
+            const value = newDateValue.target.value
+              ? moment(newDateValue.target.value, DATE_FORMAT)
+              : null
             setDateValue(value)
           }}
           value={dateValue?.format('YYYY-MM-DD')}
@@ -85,7 +87,6 @@ export const DateHour: FC<DateHourProps> = ({
           onChange={(newHourValue: string) => {
             setHourValue(newHourValue)
           }}
-          value={hourValue}
           variantSize={variantSize}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
