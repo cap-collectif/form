@@ -1173,9 +1173,9 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@cap-collectif/ui@^1.10.5":
-  version "1.10.5"
-  resolved "https://registry.yarnpkg.com/@cap-collectif/ui/-/ui-1.10.5.tgz#cbd5ff1431c8709ce8c0dddc52bf75e431f0ce69"
-  integrity sha512-rTYzMPLUGjdaBa73+zGwdpXwYZCKms1w/4HNdmtQFz+WHHHsQo5O1j9s57btTZdg4ASjemWu0ReF/SS19kG2SA==
+  version "1.10.12"
+  resolved "https://registry.yarnpkg.com/@cap-collectif/ui/-/ui-1.10.12.tgz#10c8e5cf0d904360ca42f013763122fa079f20ef"
+  integrity sha512-2gDSH1drI1q4gjQLFlOvp6N/soKMOcizrvvYiPY5ypEJQEu1ql7JbOG/PUR6heYN5VJUqJrTd/N55rpImF1cig==
   dependencies:
     "@styled-system/css" "^5.1.5"
     "@styled-system/should-forward-prop" "^5.1.5"
