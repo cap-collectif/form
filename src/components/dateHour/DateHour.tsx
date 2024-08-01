@@ -41,8 +41,7 @@ export const DateHour: FC<DateHourProps> = ({
       onChange(null)
       return
     }
-
-    const formattedHour = moment(hourValue ?? '00:00', 'HH:mm')
+    const formattedHour = moment(hourValue ?? '00:00', 'hh:mm')
     const dateHour = moment(dateValue ?? moment.now())
       .set({
         hour: formattedHour.get('hour'),
