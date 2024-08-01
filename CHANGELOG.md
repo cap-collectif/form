@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.6
+
+`2024-08-01`
+
+- 🆕 Implement html native hour input [#96](https://github.com/cap-collectif/form/pull/96)
+
 # 0.6.5
 
 `2024-07-09`
