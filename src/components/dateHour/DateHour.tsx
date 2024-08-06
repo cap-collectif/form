@@ -42,24 +42,16 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
     const initialDate = value ? moment(value, DATE_FORMAT) : null
 
     const [hourValue, setHourValue] = useState(
-      initialDate ? initialDate.format('hh:mm') : null,
+      initialDate ? initialDate.format('HH:mm') : null,
     )
     const [dateValue, setDateValue] =
       useState<moment.Moment | null>(initialDate)
 
     useEffect(() => {
-      if (!dateValue) {
+      if (!dateValue && !hourValue) {
         onChange(null)
         return
       }
-      const formattedHour = moment(hourValue ?? '00:00', 'hh:mm')
-      const dateHour = moment(dateValue ?? moment.now())
-        .set({
-          hour: formattedHour.get('hour'),
-          minute: formattedHour.get('minute'),
-        })
-        .format(DATE_FORMAT)
-      onChange(dateHour)
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hourValue, dateValue])
 
@@ -91,13 +83,16 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
             variantSize={variantSize}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            placeholder={placeholder}
             {...dateInputProps}
             ref={ref}
           />
           <HourInput
-            // value={hourValue ?? placeholder ?? null}
+            value={dateValue?.format('HH:mm')}
+            defaultValue={hourValue}
             onChange={(newHourValue: string) => {
               setHourValue(newHourValue)
+              console.log(newHourValue)
             }}
             variantSize={variantSize}
             isDisabled={isDisabled}
