@@ -92,7 +92,6 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
             defaultValue={hourValue}
             onChange={(newHourValue: string) => {
               setHourValue(newHourValue)
-              console.log(newHourValue)
             }}
             variantSize={variantSize}
             isDisabled={isDisabled}
