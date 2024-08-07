@@ -16,6 +16,7 @@ export interface DateHourProps extends Omit<BoxPropsOf<'input'>, 'onChange'> {
   readonly isInvalid?: boolean
   readonly variantSize?: CapInputSize
   readonly dateInputProps?: Partial<DateInputProps>
+  readonly value?: string
   readonly id?: string
   readonly placeholder?: string
   readonly ref?: Ref<HTMLInputElement | null>
@@ -69,6 +70,7 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
               ? { borderColor: `${colors.blue[500]} !important` }
               : {},
         }}
+        id={id}
       >
         <InputGroup sx={{ flexWrap: 'nowrap !important' }}>
           <DateInput
@@ -95,7 +97,6 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
             variantSize={variantSize}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
-            id={id}
           />
         </InputGroup>
       </Box>
