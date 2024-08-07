@@ -16,7 +16,6 @@ export interface DateHourProps extends Omit<BoxPropsOf<'input'>, 'onChange'> {
   readonly isInvalid?: boolean
   readonly variantSize?: CapInputSize
   readonly dateInputProps?: Partial<DateInputProps>
-  readonly value?: string
   readonly id?: string
   readonly placeholder?: string
   readonly ref?: Ref<HTMLInputElement | null>
