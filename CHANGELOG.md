@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.7
+
+`2024-08-08`
+
+- 🐛 Fix DateHour component behaviour [#98](https://github.com/cap-collectif/form/pull/98)
+
 # 0.6.6
 
 `2024-08-01`
