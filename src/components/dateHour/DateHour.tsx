@@ -9,7 +9,7 @@ import {
   DateInputProps,
 } from '@cap-collectif/ui'
 import moment from 'moment'
-import { forwardRef, Ref, useEffect, useState } from 'react'
+import { forwardRef, Ref, useEffect, useState, ChangeEvent } from 'react'
 
 export interface DateHourProps extends Omit<BoxPropsOf<'input'>, 'onChange'> {
   readonly isDisabled?: boolean
@@ -22,7 +22,9 @@ export interface DateHourProps extends Omit<BoxPropsOf<'input'>, 'onChange'> {
   readonly ref?: Ref<HTMLInputElement | null>
 }
 
-const DATE_FORMAT = 'YYYY-MM-DD H:mm:ss'
+const DATE_FORMAT = 'YYYY-MM-DD';
+const HOUR_FORMAT = 'HH:mm'
+const DATE_TIME_FORMAT = `${DATE_FORMAT} ${HOUR_FORMAT}:ss`
 
 export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
   (
@@ -39,21 +41,22 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
     ref,
   ) => {
     const { colors } = useTheme()
-    const initialDate = value ? moment(value, DATE_FORMAT) : null
 
-    const [hourValue, setHourValue] = useState(
-      initialDate ? initialDate.format('HH:mm') : null,
+    const [date, setDate] = useState<string | null>(
+      value ? moment(value).format(DATE_FORMAT) : null
     )
-    const [dateValue, setDateValue] =
-      useState<moment.Moment | null>(initialDate)
+
+    const [hour, setHour] = useState<string | null>(
+      value ? moment(value).format(HOUR_FORMAT) : '00:00'
+    )
+
+    const dateTime = date && hour ? moment(`${date} ${hour}`).format(DATE_TIME_FORMAT) : null;
 
     useEffect(() => {
-      if (!dateValue && !hourValue) {
-        onChange(null)
-        return
+      if (onChange) {
+        onChange(dateTime)
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hourValue, dateValue])
+    }, [dateTime]);
 
     return (
       <Box
@@ -64,23 +67,24 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
             borderBottomRightRadius: '0px !important',
           },
           '& .cap-date-input + div': { flex: 'none' },
-          '& .cap-hour-input > div': { borderLeft: '0px !important' },
+          '& .cap-hour-input': {
+            borderLeft: '0px !important',
+            borderTopLeftRadius: '0px !important',
+            borderBottomLeftRadius: '0px !important',
+          },
           '&:focus-within *':
             !isDisabled && !isInvalid
               ? { borderColor: `${colors.blue[500]} !important` }
               : {},
         }}
-        id={id}
       >
         <InputGroup sx={{ flexWrap: 'nowrap !important' }}>
           <DateInput
-            onChange={(newDateValue: React.ChangeEvent<HTMLInputElement>) => {
-              const value = newDateValue.target.value
-                ? moment(newDateValue.target.value, DATE_FORMAT)
-                : null
-              setDateValue(value)
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              const date = event.target.value || null;
+              setDate(date)
             }}
-            value={dateValue?.format('YYYY-MM-DD')}
+            value={date}
             variantSize={variantSize}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
@@ -89,14 +93,16 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
             ref={ref}
           />
           <HourInput
-            value={dateValue?.format('HH:mm')}
-            defaultValue={hourValue}
-            onChange={(newHourValue: string) => {
-              setHourValue(newHourValue)
+            defaultValue={hour}
+            value={hour}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              const hour = event.target.value || null;
+              setHour(hour)
             }}
             variantSize={variantSize}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            id={id}
           />
         </InputGroup>
       </Box>

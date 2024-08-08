@@ -257,7 +257,6 @@ export const Default = () => {
           dateInputProps={{
             isOutsideRange: true,
           }}
-          defaultValue={'2024-08-06 15:41:00'}
         />
       </FormControl>
 
