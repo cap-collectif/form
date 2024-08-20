@@ -11,6 +11,13 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.8
+
+`2024-08-20`
+
+- 🆕 Trigger all errors on onSubmit mode [#100](https://github.com/cap-collectif/form/pull/100)
+
+
 # 0.6.7
 
 `2024-08-08`
