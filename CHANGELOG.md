@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.6.9
+
+`2024-08-20`
+
+- 🐛 Type issue [#102](https://github.com/cap-collectif/form/pull/102)
+
 # 0.6.8
 
 `2024-08-20`
