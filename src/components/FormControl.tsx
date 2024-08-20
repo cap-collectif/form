@@ -52,7 +52,12 @@ export const FormControl: FC<FormControlProps> = ({
         : undefined,
     },
   })
-  const isInvalid = invalid && getTouchedState(touchedFields, name)
+
+  const mode = control?._options?.mode
+
+  const isInvalid =
+    invalid &&
+    (mode === 'onChange' ? getTouchedState(touchedFields, name) : true)
 
   const errorFieldId = `${name}-error`
 
@@ -75,7 +80,6 @@ export const FormControl: FC<FormControlProps> = ({
       mb={4}
       isInvalid={isInvalid}
       isRequired={isRequired}
-      toto="toto"
       sx={{
         '&:last-child': {
           mb: 0,
