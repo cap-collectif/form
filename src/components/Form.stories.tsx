@@ -4,6 +4,7 @@ import {
   FormLabel,
   FormGuideline,
   InputGroup,
+  Button,
 } from '@cap-collectif/ui'
 import { Meta } from '@storybook/react'
 import { useForm } from 'react-hook-form'
@@ -250,14 +251,7 @@ export const Default = () => {
 
       <FormControl name="dateHour" control={control} isRequired>
         <FormLabel label="Date With Hour" />
-        <FieldInput
-          type="dateHour"
-          name="dateHour"
-          control={control}
-          dateInputProps={{
-            isOutsideRange: true,
-          }}
-        />
+        <FieldInput type="dateHour" name="dateHour" control={control} />
       </FormControl>
 
       <FormControl name="color" control={control} isRequired>
@@ -306,6 +300,63 @@ export const Focus = () => {
       </FormControl>
 
       <button type="submit">Submit</button>
+      <pre>{JSON.stringify({ isValid }, null, 2)}</pre>
+      <pre>{JSON.stringify({ errors }, null, 2)}</pre>
+    </Box>
+  )
+}
+
+export const TriggerAllErrorsOnSubmit = () => {
+  const { control, handleSubmit, formState } = useForm({
+    mode: 'onSubmit',
+  })
+
+  const { errors, isValid } = formState
+
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
+
+  return (
+    <Box
+      as="form"
+      maxWidth="40%"
+      margin="auto"
+      noValidate
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <FormControl name="firstName" control={control} isRequired>
+        <FormLabel label="Firstname" />
+        <FieldInput
+          type="text"
+          minLength={4}
+          name="firstName"
+          control={control}
+        />
+      </FormControl>
+      <FormControl name="lastName" control={control} isRequired>
+        <FormLabel label="lastName" />
+        <FieldInput
+          type="text"
+          minLength={4}
+          name="lastName"
+          control={control}
+        />
+      </FormControl>
+      <FormControl name="condition" control={control} isRequired>
+        <FormLabel label="condition" />
+        <FieldInput
+          id="condition"
+          type="checkbox"
+          name="condition"
+          control={control}
+          placeholder="Jean"
+        />
+      </FormControl>
+
+      <Button mb={4} type="submit">
+        Submit
+      </Button>
       <pre>{JSON.stringify({ isValid }, null, 2)}</pre>
       <pre>{JSON.stringify({ errors }, null, 2)}</pre>
     </Box>
