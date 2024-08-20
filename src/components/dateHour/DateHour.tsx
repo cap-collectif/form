@@ -95,6 +95,7 @@ export const DateHour = forwardRef<HTMLInputElement, DateHourProps>(
           <HourInput
             defaultValue={hour}
             value={hour}
+            // @ts-ignore TODO : fix DS hourInputType
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               const hour = event.target.value || null;
               setHour(hour)
