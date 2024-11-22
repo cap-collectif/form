@@ -131,6 +131,9 @@ export const Default = () => {
           control={control}
           showThumbnail
           format="image/*"
+          onChange={(value) => {
+            console.log(value)
+          }}
         />
       </FormControl>
 
