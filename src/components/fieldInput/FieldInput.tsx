@@ -210,7 +210,7 @@ export const FieldInput: FC<FieldInputProps> = forwardRef(
           />
         )
       case 'uploader':
-        return <Uploader {...props} {...field} id={id} ref={ref} />
+        return <Uploader {...props} {...field} onChange={handleOnChange} id={id} ref={ref} />
       case 'codeInput':
         return (
           <CodeInput
