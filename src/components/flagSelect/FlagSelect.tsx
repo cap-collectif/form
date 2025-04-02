@@ -15,6 +15,8 @@ import {
   Select,
   useFormControl,
   Text,
+  CapUIFontSize,
+  CapUILineHeight,
 } from '@cap-collectif/ui'
 import flags from './flags'
 import { COUNTRY_CODES } from './enums'
@@ -42,7 +44,13 @@ const flagsOptions: FlagOptionType[] = flags.map((flag: FlagType) => ({
   label: (
     <Flex direction="row" spacing={2} align="center">
       <Box>{flag.flag}</Box>
-      <Text color="gray.900" fontSize={3} lineHeight="base" m={0} ml={2}>
+      <Text
+        color="gray.900"
+        fontSize={CapUIFontSize.BodyRegular}
+        lineHeight={CapUILineHeight.Normal}
+        m={0}
+        ml={2}
+      >
         {flag.country_code} (+{flag.dial_code})
       </Text>
     </Flex>
