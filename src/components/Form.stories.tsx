@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form'
 
 import FormControl from './FormControl'
 import { FieldInput } from './fieldInput'
+import { COUNTRY_CODES } from './flagSelect'
 
 const meta: Meta = {
   title: 'Example',
@@ -51,12 +52,10 @@ export const Default = () => {
           }}
         />
       </FormControl>
-
       <FormControl name="fingers" control={control} isRequired>
         <FormLabel label="Number of finger" />
         <FieldInput type="number" name="fingers" control={control} />
       </FormControl>
-
       <FormControl name="description" control={control} isRequired>
         <FormLabel label="Description" />
         <FormGuideline>Tell us about you</FormGuideline>
@@ -73,7 +72,6 @@ export const Default = () => {
           }}
         />
       </FormControl>
-
       <FormControl name="drink" control={control} isRequired>
         <FormLabel label="Drink" />
         <FormGuideline>Choose your drink(s)</FormGuideline>
@@ -96,7 +94,6 @@ export const Default = () => {
           ]}
         />
       </FormControl>
-
       <FormControl name="country" control={control} isRequired>
         <FormLabel label="Country" />
         <FormGuideline>Choose your country</FormGuideline>
@@ -121,7 +118,6 @@ export const Default = () => {
           ]}
         />
       </FormControl>
-
       <FormControl name="logo" control={control} isRequired>
         <FormLabel label="Logo" />
         <FormGuideline>Accepted type: jpg, png, svg.</FormGuideline>
@@ -131,12 +127,11 @@ export const Default = () => {
           control={control}
           showThumbnail
           format="image/*"
-          onChange={(value) => {
+          onChange={value => {
             console.log(value)
           }}
         />
       </FormControl>
-
       <FormControl name="holiday-pictures" control={control} isRequired>
         <FormLabel label="Holiday Pictures" />
         <FieldInput
@@ -146,7 +141,6 @@ export const Default = () => {
           multiple
         />
       </FormControl>
-
       <FormControl name="picture" control={control} isRequired>
         <FormLabel label="Picture pour tester la max size" />
         <FormGuideline>Accepted type: jpg, png, svg.</FormGuideline>
@@ -159,7 +153,6 @@ export const Default = () => {
           format="image/*"
         />
       </FormControl>
-
       <FormControl name="sober" control={control} isRequired>
         <FieldInput
           type="checkbox"
@@ -170,7 +163,6 @@ export const Default = () => {
           Are you sober ?
         </FieldInput>
       </FormControl>
-
       <FormControl name="happy" control={control} isRequired>
         <Flex direction="row" align="center">
           <FieldInput
@@ -183,7 +175,6 @@ export const Default = () => {
           </FieldInput>
         </Flex>
       </FormControl>
-
       <FormControl name="fastFood" control={control} isRequired>
         <FormLabel label="Fast food" />
         <FieldInput
@@ -204,12 +195,10 @@ export const Default = () => {
           clearable
         />
       </FormControl>
-
       <FormControl name="codeInput" control={control} isRequired>
         <FormLabel label="Code Input" />
         <FieldInput type="codeInput" name="codeInput" control={control} />
       </FormControl>
-
       <InputGroup>
         <FormLabel label="Choisissez une couleur :" />
         <FormGuideline>Tell us about you</FormGuideline>
@@ -241,26 +230,48 @@ export const Default = () => {
           />
         </FormControl>
       </InputGroup>
-
       <FormControl name="birth-date" control={control} isRequired>
         <FormLabel label="Birth date" />
         <FieldInput type="date" name="birth-date" control={control} />
       </FormControl>
-
       <FormControl name="hour" control={control} isRequired>
         <FormLabel label="Hour" />
         <FieldInput type="hour" name="hour" control={control} />
       </FormControl>
-
       <FormControl name="dateHour" control={control} isRequired>
         <FormLabel label="Date With Hour" />
         <FieldInput type="dateHour" name="dateHour" control={control} />
       </FormControl>
-
       <FormControl name="color" control={control} isRequired>
         <FormLabel label="Color" />
         <FieldInput type="colorPicker" name="color" control={control} />
       </FormControl>
+      <InputGroup>
+        <FormLabel label="" />
+        <FormControl
+          name="PhoneVerifiedRequirement.CountryCode"
+          control={control}
+          isDisabled
+        >
+          <FieldInput
+            uniqueCountry={COUNTRY_CODES.FR}
+            type="flagSelect"
+            name="PhoneVerifiedRequirement.CountryCode"
+            control={control}
+            placeholder={'ko'}
+          />
+        </FormControl>
+        <FormControl
+          name="PhoneVerifiedRequirement.phoneNumber"
+          control={control}
+        >
+          <FieldInput
+            type="tel"
+            name="PhoneVerifiedRequirement.phoneNumber"
+            control={control}
+          />
+        </FormControl>
+      </InputGroup>
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </Box>
   )
@@ -356,7 +367,6 @@ export const TriggerAllErrorsOnSubmit = () => {
           placeholder="Jean"
         />
       </FormControl>
-
       <Button mb={4} type="submit">
         Submit
       </Button>
