@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.7.1
+
+`2025-04-02`
+
+- 🐛 Upgrade `cap-collectif/ui` dependency [#109](https://github.com/cap-collectif/form/pull/109)
+
 # 0.7.0
 
 `2024-11-22`
