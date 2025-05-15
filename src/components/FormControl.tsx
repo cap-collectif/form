@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import type { FC } from 'react'
-import React from 'react'
+import React, { useId } from 'react'
 import { useIntl } from 'react-intl'
 import { Control, useController, FormState } from 'react-hook-form'
 import {
@@ -14,6 +14,7 @@ import {
 export interface FormControlProps extends CapFormControlProps {
   name: string
   control: Control<any>
+  children?: React.ReactNode
 }
 
 const getTouchedState = (
@@ -39,6 +40,8 @@ export const FormControl: FC<FormControlProps> = ({
   ...props
 }) => {
   const intl = useIntl()
+  const generatedId = useId()
+
   const {
     field,
     fieldState: { invalid, error },
@@ -61,12 +64,28 @@ export const FormControl: FC<FormControlProps> = ({
 
   const errorFieldId = `${name}-error`
 
+  const inputId = React.Children.toArray(children).find(
+    child => child?.type?.displayName === 'FieldInput',
+  )?.props?.id
+
+  const labelFor = React.Children.toArray(children).find(
+    child => child?.type?.displayName === 'FormLabel',
+  )?.props?.htmlFor
+
+  const shouldAssignGeneratedId = !inputId || !labelFor || inputId !== labelFor
+
   const childrenWithProps = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
       if (child?.type?.displayName === 'FieldInput') {
         return React.cloneElement(child, {
           ref: field.ref,
           'aria-describedby': isInvalid ? errorFieldId : undefined,
+          id: shouldAssignGeneratedId ? generatedId : child.props.id,
+        })
+      }
+      if (child?.type?.displayName === 'FormLabel' && shouldAssignGeneratedId) {
+        return React.cloneElement(child, {
+          htmlFor: generatedId,
         })
       }
       return React.cloneElement(child)
