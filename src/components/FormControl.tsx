@@ -40,7 +40,7 @@ export const FormControl: FC<FormControlProps> = ({
   ...props
 }) => {
   const intl = useIntl()
-  const inputId = useId()
+  const generatedId = useId()
 
   const {
     field,
@@ -64,18 +64,28 @@ export const FormControl: FC<FormControlProps> = ({
 
   const errorFieldId = `${name}-error`
 
+  const inputId = React.Children.toArray(children).find(
+    child => child?.type?.displayName === 'FieldInput',
+  )?.props?.id
+
+  const labelFor = React.Children.toArray(children).find(
+    child => child?.type?.displayName === 'FormLabel',
+  )?.props?.htmlFor
+
+  const shouldAssignGeneratedId = !inputId || !labelFor || inputId !== labelFor
+
   const childrenWithProps = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
       if (child?.type?.displayName === 'FieldInput') {
         return React.cloneElement(child, {
           ref: field.ref,
           'aria-describedby': isInvalid ? errorFieldId : undefined,
-          id: child.props.id || inputId,
+          id: shouldAssignGeneratedId ? generatedId : child.props.id,
         })
       }
-      if (child?.type?.displayName === 'FormLabel') {
+      if (child?.type?.displayName === 'FormLabel' && shouldAssignGeneratedId) {
         return React.cloneElement(child, {
-          'htmlFor': child.props.htmlFor || inputId,
+          htmlFor: generatedId,
         })
       }
       return React.cloneElement(child)
