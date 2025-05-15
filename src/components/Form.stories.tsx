@@ -36,11 +36,12 @@ export const Default = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <FormControl name="firstName" control={control} isRequired>
-        <FormLabel label="Firstname" />
+        <FormLabel label="Firstname" htmlFor='firstName'/>
         <FieldInput
           type="text"
           minLength={4}
           name="firstName"
+          id="firstName"
           control={control}
           defaultValue="Patrick"
           placeholder="Jean"

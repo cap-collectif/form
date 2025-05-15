@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import type { FC } from 'react'
-import React from 'react'
+import React, { useId } from 'react'
 import { useIntl } from 'react-intl'
 import { Control, useController, FormState } from 'react-hook-form'
 import {
@@ -14,6 +14,7 @@ import {
 export interface FormControlProps extends CapFormControlProps {
   name: string
   control: Control<any>
+  children?: React.ReactNode
 }
 
 const getTouchedState = (
@@ -39,6 +40,8 @@ export const FormControl: FC<FormControlProps> = ({
   ...props
 }) => {
   const intl = useIntl()
+  const inputId = useId()
+
   const {
     field,
     fieldState: { invalid, error },
@@ -67,6 +70,12 @@ export const FormControl: FC<FormControlProps> = ({
         return React.cloneElement(child, {
           ref: field.ref,
           'aria-describedby': isInvalid ? errorFieldId : undefined,
+          id: child.props.id || inputId,
+        })
+      }
+      if (child?.type?.displayName === 'FormLabel') {
+        return React.cloneElement(child, {
+          'htmlFor': child.props.htmlFor || inputId,
         })
       }
       return React.cloneElement(child)
