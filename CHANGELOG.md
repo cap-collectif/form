@@ -11,6 +11,12 @@ To better understand the changelog, here are some legends we use:
 - 🛠 Refactor
 - 💄 Style
 
+# 0.7.2
+
+`2025-05-15`
+
+- 🆕 Auto assign id on label/input when in FormControl component [#111](https://github.com/cap-collectif/form/pull/111)
+
 # 0.7.1
 
 `2025-04-02`
